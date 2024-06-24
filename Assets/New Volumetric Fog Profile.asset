@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612e70f49e5124da0a95111a57250300, type: 3}
   m_Name: New Volumetric Fog Profile
   m_EditorClassIdentifier: 
-  raymarchQuality: 6
+  raymarchQuality: 1
   raymarchMinStep: 0.1
   jittering: 0.5
-  dithering: 1.15
+  dithering: 0
   renderQueue: 3100
   sortingLayerID: 0
   sortingOrder: 0
   constantDensity: 0
   noiseTexture: {fileID: 2800000, guid: 9c79340e1a1054275ba04070a27de306, type: 3}
   noiseTextureOptimizedSize: 256
-  noiseStrength: 0.71
+  noiseStrength: 1.8
   noiseScale: 15
   noiseFinalMultiplier: 1
   useDetailNoise: 0
@@ -33,8 +33,8 @@ MonoBehaviour:
   density: 1.69
   shape: 0
   border: 0.05
-  customHeight: 0
-  height: 0
+  customHeight: 1
+  height: 2.03
   verticalOffset: 0
   distance: 0
   distanceFallOff: 0.93
@@ -123,7 +123,7 @@ MonoBehaviour:
   detailNoiseWindDirection: {x: 0.02, y: 0, z: 0}
   dayNightCycle: 1
   sunDirection: {x: 0, y: 1, z: 0}
-  sunColor: {r: 0, g: 0.9568, b: 0.8392, a: 1}
+  sunColor: {r: 0.45852613, g: 0.6509434, b: 0.62728554, a: 1}
   sunIntensity: 1
   ambientLightMultiplier: 0
   lightDiffusionModel: 0
