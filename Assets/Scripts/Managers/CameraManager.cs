@@ -52,7 +52,7 @@ public class CameraManager : MonoBehaviour
             yaw += mouseX;
             pitch += mouseY;
 
-            pitch = Mathf.Clamp(pitch, 10f, 89f);
+            pitch = Mathf.Clamp(pitch, 30f, 89f);
 
             camParent.transform.rotation = Quaternion.Euler(pitch, yaw, 0);
         }
