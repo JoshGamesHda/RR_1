@@ -22,7 +22,9 @@ public class JawBreaker : Projectile
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        if (!other.CompareTag(Constants.TAG_PROJECTILE))
+        { 
+            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         Destroy(sphere.GetComponent<SphereCollider>());
 
         float scaleFactor = aoeRange / 2;
@@ -45,5 +47,6 @@ public class JawBreaker : Projectile
         }
 
         ReturnProjectile();
+        }
     }
 }

@@ -28,7 +28,7 @@ public class Trajectory : IProjectileBehaviour
     {
         float distance = Vector3.Distance(origin, target);
 
-        float totalTime = distance * speed;
+        float totalTime = distance / speed;
 
         float elapsedTime = Time.time - launchTime;
 

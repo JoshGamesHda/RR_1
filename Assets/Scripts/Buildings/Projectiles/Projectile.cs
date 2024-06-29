@@ -32,6 +32,7 @@ public class Projectile : MonoBehaviour
         remainingLifeTime -= Time.deltaTime;
         if(remainingLifeTime < 0)
         {
+            Debug.Log("Time ran out");
             ReturnProjectile();
         }
     }
