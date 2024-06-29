@@ -5,11 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Camera
+  - Mountain
+  - Choice
+  - Ground
+  - GameManager
+  - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Cell
   - Water
   - UI
   - 
