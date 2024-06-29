@@ -202,6 +202,7 @@ public class AttackTower : Building
             sphere.transform.localScale = sphere.transform.localScale / 2;
             sphere.transform.localPosition = new Vector3(0, 4 + i, 0);
             sphere.GetComponent<Renderer>().material.color = Color.red;
+            Destroy(sphere.GetComponent<SphereCollider>());
             supportSpheres.Add(sphere);
         }
     }

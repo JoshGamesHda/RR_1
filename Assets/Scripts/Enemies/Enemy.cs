@@ -11,13 +11,15 @@ public class Enemy : MonoBehaviour
 
     private GameObject destination;
     private Rigidbody rb;
+    protected Animator animator;  // Reference to the Animator
 
     private float nextTimeToAttack;
-    
+
     protected virtual void OnEnable()
     {
         destination = GameManager.Instance.mountain;
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();  // Initialize the Animator
         nextTimeToAttack = 0f;
     }
 
@@ -36,19 +38,18 @@ public class Enemy : MonoBehaviour
             if (collider.CompareTag(Constants.TAG_MOUNTAIN))
             {
                 closeEnough = true;
+                animator.SetTrigger("Attack");  // Trigger attack animation
             }
         }
 
-        // If not, START MOVING
-
+        // If not close enough, keep moving
         if (!closeEnough)
         {
             Vector3 moveDirection = (destination.transform.position - transform.position).normalized * moveSpeed;
             rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
         }
-
-        // If close enough, ATTACK
-        if (closeEnough && Time.time >= nextTimeToAttack)
+        // If close enough, attack
+        else if (Time.time >= nextTimeToAttack)
         {
             Attack();
             nextTimeToAttack = Time.time + 1f / attackRate;
@@ -71,17 +72,18 @@ public class Enemy : MonoBehaviour
     }
 }
 
-
 public class Blueberry : Enemy
 {
     protected override void OnEnable()
     {
         base.OnEnable();
     }
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
     }
+
     protected override void Attack()
     {
         base.Attack();

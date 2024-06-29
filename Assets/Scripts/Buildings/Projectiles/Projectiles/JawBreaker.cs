@@ -13,6 +13,7 @@ public class JawBreaker : Projectile
 
         aoeRange = GameData.Instance.AoeRadius;
         speed = GameData.Instance.AoeProjSpeed;
+        projectileLifetime = 10;
     }
 
     protected override void Update()

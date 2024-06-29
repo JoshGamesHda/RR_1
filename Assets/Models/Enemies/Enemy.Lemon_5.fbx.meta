@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3504c6baf698c8440b2aab4ad4f72817
+guid: 64e3865086b84f84fad4f56abb9dbd06
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,7 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftFoot' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -24,7 +25,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -45,7 +46,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -73,8 +74,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -198,7 +199,92 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Enemy.Lemon_5(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: metarig.001
+      parentName: Enemy.Lemon_5(Clone)
+      position: {x: -0.0010485649, y: 0.07003881, z: -0.010226813}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: spine
+      parentName: metarig.001
+      position: {x: 0.0000000041661163, y: -0.000046847945, z: -0.00020210817}
+      rotation: {x: 0.5000002, y: 0.49999985, z: 0.49999988, w: 0.50000024}
+      scale: {x: 1.0000014, y: 1, z: 1.0000014}
+    - name: thigh.L
+      parentName: spine
+      position: {x: -0.000014450815, y: 0.0004448738, z: -0.00038159548}
+      rotation: {x: 0.038462788, y: -0.008926034, z: 0.99915385, w: 0.011514932}
+      scale: {x: 1.0000013, y: 1.0000026, z: 1.0000019}
+    - name: shin.L
+      parentName: thigh.L
+      position: {x: -1.8626451e-11, y: 0.0005004704, z: 1.04773785e-11}
+      rotation: {x: 0.0065603983, y: 0.076613694, z: 0.046176024, w: 0.9959695}
+      scale: {x: 1, y: 1.0000007, z: 0.99999964}
+    - name: spine.001
+      parentName: spine
+      position: {x: 9.785845e-13, y: 0.00014840202, z: 1.2591513e-16}
+      rotation: {x: -0.0000008493662, y: 0.0000030249357, z: -0.000000029802322, w: 1}
+      scale: {x: 1.0000007, y: 1, z: 1.0000007}
+    - name: thigh.R
+      parentName: spine
+      position: {x: -0.000014450394, y: 0.00044487382, z: 0.00038158594}
+      rotation: {x: 0.9991539, y: -0.0115149915, z: 0.038462013, w: 0.00892584}
+      scale: {x: 1.0000021, y: 1.0000039, z: 1.0000024}
+    - name: shin.R
+      parentName: thigh.R
+      position: {x: 5.8207657e-12, y: 0.00050047063, z: -3.76167e-11}
+      rotation: {x: -0.006560271, y: 0.07661359, z: 0.046176065, w: -0.9959695}
+      scale: {x: 1.0000021, y: 1.0000044, z: 1.0000023}
+    - name: Feet.IK.L
+      parentName: metarig.001
+      position: {x: -0.0003917039, y: 0.0005229179, z: -0.00035557145}
+      rotation: {x: -0.000000059604645, y: -0.71402156, z: -0.000000059604645, w: -0.7001237}
+      scale: {x: 1.0000008, y: 1.0000006, z: 1.0000011}
+    - name: foot.L
+      parentName: Feet.IK.L
+      position: {x: 0.000000023492612, y: -0.000000013364296, z: 4.6216883e-10}
+      rotation: {x: -0.1501847, y: -0.00024196507, z: -0.98803675, w: 0.035041455}
+      scale: {x: 1.0000063, y: 1.0000017, z: 1.0000006}
+    - name: Feet.IK.R
+      parentName: metarig.001
+      position: {x: 0.00032012715, y: -0.0007672818, z: -0.00034115583}
+      rotation: {x: -0, y: -0.7140215, z: -0, w: 0.7001238}
+      scale: {x: 1.0000011, y: 1.0000012, z: 1.0000011}
+    - name: foot.R
+      parentName: Feet.IK.R
+      position: {x: -0.0000000012089731, y: -2.6017402e-10, z: 2.689194e-10}
+      rotation: {x: 0.1501848, y: -0.00024195391, z: -0.98803675, w: -0.035041556}
+      scale: {x: 1.0000061, y: 1.0000004, z: 1.0000008}
+    - name: Cylinder.009
+      parentName: Enemy.Lemon_5(Clone)
+      position: {x: -0.0007042885, y: 0.076786935, z: -0.022444256}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube.076
+      parentName: Enemy.Lemon_5(Clone)
+      position: {x: 0.00008535385, y: 0.2640911, z: 0.040983498}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube.071
+      parentName: Enemy.Lemon_5(Clone)
+      position: {x: 0.003382206, y: 0.16554965, z: 0.062836}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube.030
+      parentName: Enemy.Lemon_5(Clone)
+      position: {x: 0.000072956085, y: 0.23783477, z: -0.024939962}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube.025
+      parentName: Enemy.Lemon_5(Clone)
+      position: {x: -0.00081920624, y: 0.01456438, z: -0.02138288}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 81.438576, y: 49.16302, z: 39.581444}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -209,13 +295,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

@@ -6,6 +6,7 @@ public class Lemon : Enemy
 {
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform shootPos;
+
     protected override void OnEnable()
     {
         identifier = "Lemon";
@@ -23,15 +24,18 @@ public class Lemon : Enemy
     {
         base.FixedUpdate();
     }
+
     protected override void Attack()
     {
-        ShootProjectile();
+        Debug.Log("Attacking");
+        ShootProjectile(); // Call base Attack method to trigger general attack behavior
+        animator.SetTrigger("Attack"); // Trigger the "Attack" animation parameter
     }
 
     private void ShootProjectile()
     {
         GameObject proj = Instantiate(projectile);
-
         proj.GetComponent<LemonSeed>().SetValues(shootPos.position, GameManager.Instance.mountain.transform.position, attackDamage);
     }
 }
+
