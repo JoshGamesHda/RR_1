@@ -17,9 +17,13 @@ public class AOE : AttackTower
 
         projectileType = "JawBreaker";
 
-        rawDamage = GameData.rawDamageAOE;
-        rawFireRate = GameData.rawFireRateAOE;
-        rawRange = GameData.rawRangeAOE;
+        rawDamage = GameData.Instance.rawDamageAOE;
+        rawFireRate = GameData.Instance.rawFireRateAOE;
+        rawRange = GameData.Instance.rawRangeAOE;
+
+        damage = rawDamage;
+        fireRate = rawFireRate;
+        range = rawRange;
     }
 
     protected override void Update()

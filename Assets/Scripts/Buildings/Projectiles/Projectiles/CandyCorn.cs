@@ -11,7 +11,7 @@ public class CandyCorn : Projectile
 
         behaviour = new StraightShot();
 
-        speed = GameData.CandyCornProjSpeed;
+        speed = GameData.Instance.CandyCornProjSpeed;
     }
 
     protected override void Update()
@@ -19,11 +19,11 @@ public class CandyCorn : Projectile
         base.Update();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag(Constants.TAG_ENEMY))
+        if (other.CompareTag(Constants.TAG_ENEMY))
         {
-            collision.collider.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
 
             ReturnProjectile();
         }

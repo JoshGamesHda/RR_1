@@ -17,8 +17,8 @@ public class LemonSeed : MonoBehaviour
 
     void OnEnable()
     {
-        projSpeed = GameData.ProjSpeedLemon;
-        projectile = new StraightShot();
+        projSpeed = GameData.Instance.ProjSpeedLemon;
+        projectile = new Trajectory();
 
         launchTime = Time.time;
     }
@@ -30,7 +30,7 @@ public class LemonSeed : MonoBehaviour
         target = target_;
         damage = damage_;
 
-        remainingLifeTime = GameData.projectileLifetime;
+        remainingLifeTime = GameData.Instance.projectileLifetime;
     }
 
     void Update()

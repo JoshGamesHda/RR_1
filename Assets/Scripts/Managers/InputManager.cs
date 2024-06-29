@@ -37,6 +37,7 @@ public class InputManager : MonoBehaviour
         if (lastMousePos != Input.mousePosition)
         {
             hoverCell = HoveringOverCell();
+
             lastMousePos = Input.mousePosition;
         }
     }

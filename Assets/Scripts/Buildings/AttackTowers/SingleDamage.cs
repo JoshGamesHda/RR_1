@@ -17,9 +17,13 @@ public class SingleDamage : AttackTower
 
         projectileType = "CandySpike";
 
-        rawDamage = GameData.rawDamageBallista;
-        rawFireRate = GameData.rawFireRateBallista; 
-        rawRange = GameData.rawRangeBallista; 
+        rawDamage = GameData.Instance.rawDamageBallista;
+        rawFireRate = GameData.Instance.rawFireRateBallista; 
+        rawRange = GameData.Instance.rawRangeBallista;
+
+        damage = rawDamage;
+        fireRate = rawFireRate;
+        range = rawRange;
     }
 
     protected override void Update()

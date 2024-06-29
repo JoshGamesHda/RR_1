@@ -17,9 +17,13 @@ public class FireRate : AttackTower
 
         projectileType = "CandyCorn";
 
-        rawDamage = GameData.rawDamageFireRate;
-        rawFireRate = GameData.rawFireRateFireRate;
-        rawRange = GameData.rawRangeFireRate;
+        rawDamage = GameData.Instance.rawDamageFireRate;
+        rawFireRate = GameData.Instance.rawFireRateFireRate;
+        rawRange = GameData.Instance.rawRangeFireRate;
+
+        damage = rawDamage;
+        fireRate = rawFireRate;
+        range = rawRange;
     }
 
     protected override void Update()

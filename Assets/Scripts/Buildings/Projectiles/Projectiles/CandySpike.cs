@@ -11,7 +11,7 @@ public class CandySpike : Projectile
 
         behaviour = new StraightShot();
 
-        speed = GameData.CandySpikeProjSpeed;
+        speed = GameData.Instance.CandySpikeProjSpeed;
     }
 
     protected override void Update()
@@ -19,13 +19,14 @@ public class CandySpike : Projectile
         base.Update();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag(Constants.TAG_ENEMY))
+        if (other.CompareTag(Constants.TAG_ENEMY))
         {
-            collision.collider.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
 
             ReturnProjectile();
         }
     }
+
 }

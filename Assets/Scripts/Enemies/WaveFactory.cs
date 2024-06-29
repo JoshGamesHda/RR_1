@@ -28,7 +28,7 @@ public struct SpawningArea
     private SpawningArea(float rotatFromPlateau)
     {
         rotationFromPlateau = rotatFromPlateau;
-        pos = new Vector3(Mathf.Sin(rotationFromPlateau) * GameData.waveDistanceToPlateau, 0, Mathf.Cos(rotationFromPlateau) * GameData.waveDistanceToPlateau);
+        pos = new Vector3(Mathf.Sin(rotationFromPlateau) * GameData.Instance.waveDistanceToPlateau, 0, Mathf.Cos(rotationFromPlateau) * GameData.Instance.waveDistanceToPlateau);
         clusters = new();
     }
 
@@ -52,7 +52,7 @@ public class WaveFactory : MonoBehaviour
     public Wave CreateWave(int waveNum)
     {
         List<float> rotations = new();
-        for (int i = 0; i < GameData.areasPerWave; i++)
+        for (int i = 0; i < GameData.Instance.areasPerWave; i++)
             rotations.Add(Random.Range(0f, 2 * Mathf.PI));
 
         return Wave.Create(rotations, waveNum, clusterCollection);
@@ -69,7 +69,7 @@ public class Wave
     {
         List<SpawningArea> list = new();
         
-        for(int i = 0; i < GameData.areasPerWave; i++)
+        for(int i = 0; i < GameData.Instance.areasPerWave; i++)
         {
             list.Add(SpawningArea.CreateArea(rotations[i]));
         }
@@ -83,7 +83,7 @@ public class Wave
         {
             if (clusterCollection.clusters[i].unlockAtWave <= waveNum && clusterCollection.clusters[i].lockAtWave >= waveNum) possibleClusters.Add(clusterCollection.clusters[i]);
         }
-        for (int i = 0; i < GameData.clustersPerWave; i++)
+        for (int i = 0; i < GameData.Instance.clustersPerWave; i++)
         {
             // Takes out one random cluster from the cluster list
             Cluster cluster = possibleClusters[Random.Range(0, possibleClusters.Count)];

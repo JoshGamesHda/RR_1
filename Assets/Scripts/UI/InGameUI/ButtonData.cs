@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonData : ScriptableObject
 {
@@ -10,6 +11,6 @@ public class ButtonData : ScriptableObject
     public string buildingName { get; set; }
     public string buildingDescription { get; set;}
 
-    //public Image towerImage { get; set;}
-    //public Image towerShape { get; set;}
+    public Image towerImage { get; set;}
+    public Image towerShape { get; set;}
 }

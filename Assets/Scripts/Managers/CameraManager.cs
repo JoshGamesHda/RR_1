@@ -28,8 +28,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private Camera cam;
 
     readonly private float
-        rotationSpeedX = 500f,
-        rotationSpeedZ = 400f;
+        rotationSpeedX = 2000f,
+        rotationSpeedZ = 1000f;
 
     private float 
         yaw = 0f, 
@@ -52,7 +52,7 @@ public class CameraManager : MonoBehaviour
             yaw += mouseX;
             pitch += mouseY;
 
-            pitch = Mathf.Clamp(pitch, 30f, 89f);
+            pitch = Mathf.Clamp(pitch, 10f, 89f);
 
             camParent.transform.rotation = Quaternion.Euler(pitch, yaw, 0);
         }

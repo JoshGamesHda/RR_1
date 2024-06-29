@@ -28,8 +28,6 @@ public class WaveManager : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] private float waveDurationInSec;
-
     private Queue<SpawningArea> areaCollection;
     private List<(Queue<string> enemyTypes, Queue<Vector2> pos, float frequency, float lastSpawnTime)> enemiesToSpawn;
 
@@ -136,13 +134,13 @@ public class WaveManager : MonoBehaviour
 
                 Queue<string> enemyTypes = new();
                 Queue<Vector2> pos = new();
-                float frequency = waveDurationInSec / enemyAmountThisCluster;
+                float frequency = GameData.Instance.waveDuration / enemyAmountThisCluster;
                 float lastSpawnTime = waveStart;
 
                 for (int i2 = 0; i2 < enemyAmountThisCluster; i2++)
                 {
                     enemyTypes.Enqueue(curArea.clusters[i].enemies[i2]);
-                    pos.Enqueue(Utility.RandPosOnCircle(Utility.Vec3ToVec2(curArea.pos), GameData.areaRadius));
+                    pos.Enqueue(Utility.RandPosOnCircle(Utility.Vec3ToVec2(curArea.pos), GameData.Instance.areaRadius));
                 }
 
                 enemiesToSpawn.Add((enemyTypes, pos, frequency, lastSpawnTime));

@@ -10,19 +10,18 @@ public class Mountain : MonoBehaviour
 
     void Start()
     {
-        hp = GameData.INIT_HP;
+        hp = GameData.Instance.initialMountainHP;
 
     }
 
     void Update()
     {
-        
+        hpText.text = hp.ToString();
     }
 
     public void DamageMountain(float dmg)
     {
         hp -= dmg;
-        hpText.text = hp.ToString();
     }
 
     public bool IsAlive()
@@ -32,7 +31,6 @@ public class Mountain : MonoBehaviour
     }
     public void ResetHP()
     {
-        hp = GameData.INIT_HP;
-        hpText.text = hp.ToString();
+        hp = GameData.Instance.initialMountainHP;
     }
 }

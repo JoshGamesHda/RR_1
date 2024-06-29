@@ -37,7 +37,7 @@ public class SelectBuilding : IPhase
             UIManager.Instance.HideButtons();
             CameraManager.Instance.cameraMovementActive = true;
         }
-        if (!Input.GetKey(Constants.KEY_HIDE_SHOP) && !UIManager.Instance.buttonsShown)
+        if (!Input.GetKey(Constants.KEY_HIDE_SHOP))
         {
             CameraManager.Instance.cameraMovementActive = false;
             UIManager.Instance.ShowButtons();

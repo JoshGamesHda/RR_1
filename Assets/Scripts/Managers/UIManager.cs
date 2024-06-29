@@ -29,41 +29,36 @@ public class UIManager : MonoBehaviour
     #endregion
 
     // Just leave this public, for whatever reason adding {get; set; } messes up the SerializeField
-    [SerializeField]
     public List<GameObject> buttons;
 
     [SerializeField] private 
         GameObject deleteBuilding;
 
     private GameObject lastBuilding;
-    public bool buttonsShown { get; private set; }
 
     void OnEnable()
     {
         HideButtons();
         HideDeleteBuildingButton();
-        buttonsShown = false;
         lastBuilding = null;
         
     }
     public void ShowButtons()
     {
-        buttonsShown = true;
-        foreach (GameObject button in buttons)
+        foreach(GameObject button in buttons)
         {
             button.GetComponent<Button>().enabled = true;
-            button.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             button.GetComponent<Image>().enabled = true;
+            button.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
         }
     }
     public void HideButtons()
     {
-        buttonsShown = false;
         foreach (GameObject button in buttons)
         {
             button.GetComponent<Button>().enabled = false;
-            button.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
             button.GetComponent<Image>().enabled = false;
+            button.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
         }
     }
     public void RandomizeButtons()

@@ -2,82 +2,114 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-/*
- *  All FireRATE, AttackRATEs, etc. are calculated in their value/second
- * 
- * 
- * 
- * 
- * 
- */
-
-
-
-public static class GameData
+public class GameData : MonoBehaviour
 {
+    #region Singleton
+    private static GameData instance;
+    private GameData() { }
+    public static GameData Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<GameData>();
+
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject("GameData");
+                    instance = obj.AddComponent<GameData>();
+                }
+            }
+            return instance;
+        }
+    }
+    #endregion
+
+    #region TowerChoices
+    [Header("Available Towers")]
+    public bool SingleDamageTower;
+    public bool AoeTower;
+    public bool FireRateTower;
+    public bool SpeedUpBuilding;
+    public bool DamageUpBuilding;
+    public bool RangeUpBuilding;
+    #endregion
+
+    #region Mountain-/ WaveData
+
+    [Header("General Stats")]
     // Distance from Wave Centers to Mountain
-    public static readonly float waveDistanceToPlateau = 40f;
+    public float waveDistanceToPlateau;
 
     // How many red spheres are generated each wave
-    public static readonly int areasPerWave = 2;
-    public static readonly float areaRadius = 5f;
+    public int areasPerWave;
+    public float areaRadius;
 
     // How many clusters are distributed over the waves
-    public static readonly int clustersPerWave = 3;
+    public int clustersPerWave;
 
-    public static float INIT_HP = 1000;
+    // The Duration until all enemies of one wave are sent
+    public float waveDuration;
 
-    // 
-    //        Support Stats
-    //
 
-    public static float SpeedUp_Multiplier = 1.5f;
-    public static float DamageUp_Multiplier = 1.5f;
-    public static float RangeUp_Multiplier = 1.5f;
+    public float initialMountainHP;
+    #endregion
 
-    // 
-    //        Raw Tower Stats
-    //
+    #region Support Stats
+    [Header("Support Stats")]
+    public float SpeedUp_Multiplier;
+    public float DamageUp_Multiplier;
+    public float RangeUp_Multiplier;
+    #endregion
 
-    // Overall projectile lifetime
-    public static float projectileLifetime = 3f;
+    #region Raw Tower Stats
+    [Header("Raw Tower Stats")]
+    [Header("All Projectiles")]
+    public float projectileLifetime;
 
-    // Single Damage Ballista thingy
-    public static float rawDamageBallista = 10;
-    public static float rawFireRateBallista = 0.25f;
-    public static float rawRangeBallista = 25;
-    public static float CandySpikeProjSpeed = 0.4f;
+    [Header("High SingleDamage Ballista")]
+    public float rawDamageBallista;
+    public float rawFireRateBallista;
+    public float rawRangeBallista;
+    public float CandySpikeProjSpeed;
 
-    // AOE tower
-    public static float rawDamageAOE = 3;
-    public static float rawFireRateAOE = 0.5f;
-    public static float rawRangeAOE = 20;
-    public static float AoeProjSpeed = 0.05f;
-    public static float AoeRadius = 7.5f;
+    [Header("AOE Tower")]
+    public float rawDamageAOE;
+    public float rawFireRateAOE;
+    public float rawRangeAOE;
+    public float AoeProjSpeed;
+    public float AoeRadius;
 
-    // FireRate thing
-    public static float rawDamageFireRate = 2;
-    public static float rawFireRateFireRate = 2;
-    public static float rawRangeFireRate = 15;
-    public static float CandyCornProjSpeed = 0.125f;
+    [Header("High FireRate Tower")]
+    public float rawDamageFireRate;
+    public float rawFireRateFireRate;
+    public float rawRangeFireRate;
+    public float CandyCornProjSpeed;
+    #endregion
 
-    // 
-    //        Enemy Stats
-    //
+    #region Enemy Stats
+    [Header("Enemy Stats")]
+    [Header("Strawberry")]
+    public float HPStrawberry;
+    public float AttackDamageStrawberry;
+    public float AttackRateStrawberry;
+    public float AttackRangeStrawberry;
+    public float MoveSpeedStrawberry;
 
-    // Strawberry
-    public static float HPStrawberry = 10;
-    public static float AttackDamageStrawberry = 5;
-    public static float AttackRateStrawberry = 2;
-    public static float AttackRangeStrawberry = 1;
-    public static float MoveSpeedStrawberry = 3;
+    [Header("Lemon")]
+    public float HPLemon;
+    public float AttackDamageLemon;
+    public float AttackRateLemon;
+    public float AttackRangeLemon;
+    public float MoveSpeedLemon;
+    public float ProjSpeedLemon;
+    #endregion
 
-    // Lemon
-    public static float HPLemon = 7.5f;
-    public static float AttackDamageLemon = 2;
-    public static float AttackRateLemon = 1.5f;
-    public static float AttackRangeLemon = 8;
-    public static float MoveSpeedLemon = 2;
-    public static float ProjSpeedLemon = 0.1f;
+    public void UpdateOnceAfterEachWave()
+    {
+        clustersPerWave = 1 + GameManager.Instance.waveNum * 2;
+        if (GameManager.Instance.waveNum == 1)
+            areasPerWave = 2;
+    }
 }

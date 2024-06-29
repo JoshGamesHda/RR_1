@@ -18,6 +18,7 @@ public class DefendBase : IPhase
             {
                 ExitState();
                 GameManager.Instance.waveNum++;
+                GameData.Instance.UpdateOnceAfterEachWave();
                 GameManager.Instance.TransitionToPhase(new SelectBuilding());
             }
             else

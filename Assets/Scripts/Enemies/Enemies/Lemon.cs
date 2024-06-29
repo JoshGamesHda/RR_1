@@ -12,11 +12,11 @@ public class Lemon : Enemy
 
         base.OnEnable();
 
-        hp = GameData.HPLemon;
-        attackDamage = GameData.AttackDamageLemon;
-        attackRate = GameData.AttackRateLemon;
-        attackRange = GameData.AttackRangeLemon;
-        moveSpeed = GameData.MoveSpeedLemon;
+        hp = GameData.Instance.HPLemon;
+        attackDamage = GameData.Instance.AttackDamageLemon;
+        attackRate = GameData.Instance.AttackRateLemon;
+        attackRange = GameData.Instance.AttackRangeLemon;
+        moveSpeed = GameData.Instance.MoveSpeedLemon;
     }
 
     protected override void FixedUpdate()
@@ -30,6 +30,8 @@ public class Lemon : Enemy
 
     private void ShootProjectile()
     {
+        Debug.Log("shooting projectile");
+
         GameObject proj = Instantiate(projectile);
 
         proj.GetComponent<LemonSeed>().SetValues(shootPos.position, GameManager.Instance.mountain.transform.position, attackDamage);

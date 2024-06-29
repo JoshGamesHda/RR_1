@@ -50,7 +50,6 @@ public class Enemy : MonoBehaviour
         // If close enough, ATTACK
         if (closeEnough && Time.time >= nextTimeToAttack)
         {
-            
             Attack();
             nextTimeToAttack = Time.time + 1f / attackRate;
         }
@@ -67,7 +66,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
-        
         // Implement attack logic here
         GameManager.Instance.mountain.GetComponent<Mountain>().DamageMountain(attackDamage);
     }

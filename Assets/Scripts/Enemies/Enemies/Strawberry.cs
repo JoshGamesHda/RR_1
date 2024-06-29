@@ -10,11 +10,11 @@ public class Strawberry : Enemy
 
         base.OnEnable();
 
-        hp = GameData.HPStrawberry;
-        attackDamage = GameData.AttackDamageStrawberry;
-        attackRate = GameData.AttackRateStrawberry;
-        attackRange = GameData.AttackRangeStrawberry;
-        moveSpeed = GameData.MoveSpeedStrawberry;
+        hp = GameData.Instance.HPStrawberry;
+        attackDamage = GameData.Instance.AttackDamageStrawberry;
+        attackRate = GameData.Instance.AttackRateStrawberry;
+        attackRange = GameData.Instance.AttackRangeStrawberry;
+        moveSpeed = GameData.Instance.MoveSpeedStrawberry;
     }
     protected override void FixedUpdate()
     {

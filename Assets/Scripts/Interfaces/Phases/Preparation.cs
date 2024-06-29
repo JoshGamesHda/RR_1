@@ -37,7 +37,7 @@ public class Preparation : IPhase
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && timeElapsed >= holdDownForPickUp && initialHoverCell != null)
+        if (Input.GetMouseButtonUp(0) && timeElapsed >= holdDownForPickUp && initialHoverCell != null && initialHoverCell.buildingOnCell != null)
         {
             BuildingManager.Instance.PickUpFrom(initialHoverCell);
             ExitState();

@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
         damage = damage_;
 
         launchTime = Time.time;
-        remainingLifeTime = GameData.projectileLifetime;
+        remainingLifeTime = GameData.Instance.projectileLifetime;
     }
     protected virtual void Update()
     {

@@ -90,12 +90,34 @@ public class BuildingPool : MonoBehaviour
 
     public GameObject GetRandomBuilding()
     {
-        int rand = Random.Range(0, buildingTypeCount);
+        int towerAmount = buildingTypeCount;
 
-        if (GameManager.Instance.waveNum == 0) rand = rand % 3;
+        List<string> availableBuildings = new();
 
-        string identifier = buildingPool[rand].identifier;
+        #region the ifs
+        if (GameData.Instance.SingleDamageTower) availableBuildings.Add("SingleDamage");
+        else towerAmount--;
 
-        return GetBuilding(identifier);
+        if (GameData.Instance.AoeTower) availableBuildings.Add("AOE");
+        else towerAmount--;
+
+        if (GameData.Instance.FireRateTower) availableBuildings.Add("FireRate");
+        else towerAmount--;
+
+        if (GameData.Instance.SpeedUpBuilding) availableBuildings.Add("SpeedUp");
+        else towerAmount--;
+
+        if (GameData.Instance.DamageUpBuilding) availableBuildings.Add("DamageUp");
+        else towerAmount--;
+
+        if (GameData.Instance.RangeUpBuilding) availableBuildings.Add("RangeUp");
+        else towerAmount--;
+        #endregion
+
+        int rand = Random.Range(0, towerAmount);
+
+        if (GameManager.Instance.waveNum == 0 && buildingTypeCount == towerAmount) rand = rand % 3;
+        
+        return GetBuilding(availableBuildings[rand]);
     }
 }
