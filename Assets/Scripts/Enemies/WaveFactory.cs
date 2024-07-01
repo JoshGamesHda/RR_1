@@ -65,11 +65,24 @@ public class Wave
 
     public List<SpawningArea> areas { get; private set; }
 
+
+
+    public static Wave Create(List<float> rotations, int waveNum, ClusterCollection clusters)
+    {
+        Wave newWave = new();
+        newWave.clusterCollection = clusters;
+
+
+        newWave.CreateSpawningAreas(rotations);
+        newWave.FillClusters(waveNum);
+
+        return newWave;
+    }
     private void CreateSpawningAreas(List<float> rotations)
     {
         List<SpawningArea> list = new();
-        
-        for(int i = 0; i < GameData.Instance.areasPerWave; i++)
+
+        for (int i = 0; i < GameData.Instance.areasPerWave; i++)
         {
             list.Add(SpawningArea.CreateArea(rotations[i]));
         }
@@ -79,7 +92,7 @@ public class Wave
     {
         // Extract a list of valid clusters for the current Wave number
         List<Cluster> possibleClusters = new();
-        for(int i = 0; i < clusterCollection.clusters.Count; i++)
+        for (int i = 0; i < clusterCollection.clusters.Count; i++)
         {
             if (clusterCollection.clusters[i].unlockAtWave <= waveNum && clusterCollection.clusters[i].lockAtWave > waveNum) possibleClusters.Add(clusterCollection.clusters[i]);
         }
@@ -94,19 +107,6 @@ public class Wave
             else areas[Random.Range(0, areas.Count)].clusters.Add(cluster);
         }
     }
-
-    public static Wave Create(List<float> rotations, int waveNum, ClusterCollection clusters)
-    {
-        Wave newWave = new();
-        newWave.clusterCollection = clusters;
-
-
-        newWave.CreateSpawningAreas(rotations);
-        newWave.FillClusters(waveNum);
-
-        return newWave;
-    }
-
     public void SendWave()
     {
         for(int i = 0; i < areas.Count; i++)

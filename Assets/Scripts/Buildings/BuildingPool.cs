@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -88,6 +88,7 @@ public class BuildingPool : MonoBehaviour
         Debug.Log("Could not return building to pool");
     }
 
+    private int? lastIndex;
     public GameObject GetRandomBuilding()
     {
         int towerAmount = buildingTypeCount;
@@ -114,7 +115,14 @@ public class BuildingPool : MonoBehaviour
         else towerAmount--;
         #endregion
 
-        int rand = Random.Range(0, towerAmount);
+        int rand;
+        if (lastIndex != null)
+        {
+            rand = UnityEngine.Random.Range(0, availableBuildings.Count - 1);
+            if (rand > lastIndex) rand += 1;
+        }
+        else rand = UnityEngine.Random.Range(0, availableBuildings.Count);
+        lastIndex = rand;
 
         if (GameManager.Instance.waveNum == 0 && buildingTypeCount == towerAmount) rand = rand % 3;
         

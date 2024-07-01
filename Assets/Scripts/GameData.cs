@@ -47,7 +47,7 @@ public class GameData : MonoBehaviour
     public float areaRadius;
 
     // How many clusters are distributed over the waves
-    public int clustersPerWave;
+    public float clustersPerWave;
 
     // The Duration until all enemies of one wave are sent
     public float waveDuration;
@@ -113,5 +113,6 @@ public class GameData : MonoBehaviour
             areasPerWave = 2;
         if(GameManager.Instance.waveNum == 5)
             areasPerWave = 3;
+        GameManager.Instance.mountain.GetComponent<Mountain>().ResetHP();
     }
 }
