@@ -23,7 +23,7 @@ public class JawBreaker : Projectile
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag(Constants.TAG_PROJECTILE))
+        if (!other.CompareTag(Constants.TAG_PROJECTILE) && !other.CompareTag(Constants.TAG_MOUNTAIN))
         { 
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             Destroy(sphere.GetComponent<SphereCollider>());

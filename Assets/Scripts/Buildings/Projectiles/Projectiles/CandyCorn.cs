@@ -27,6 +27,6 @@ public class CandyCorn : Projectile
 
             ReturnProjectile();
         }
-        if (other.CompareTag(Constants.TAG_MOUNTAIN)) ReturnProjectile();
+        if (other.CompareTag(Constants.TAG_GROUND)) ReturnProjectile();
     }
 }
