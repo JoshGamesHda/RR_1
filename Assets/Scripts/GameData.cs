@@ -111,5 +111,7 @@ public class GameData : MonoBehaviour
         clustersPerWave = 1 + GameManager.Instance.waveNum * 2;
         if (GameManager.Instance.waveNum == 1)
             areasPerWave = 2;
+        if(GameManager.Instance.waveNum == 5)
+            areasPerWave = 3;
     }
 }

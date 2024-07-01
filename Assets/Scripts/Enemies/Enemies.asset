@@ -16,20 +16,15 @@ MonoBehaviour:
   - enemies:
     - Strawberry
     - Strawberry
-    - Strawberry
+    - Lemon
+    unlockAtWave: 0
+    lockAtWave: 3
+  - enemies:
     - Strawberry
     - Strawberry
     - Strawberry
     unlockAtWave: 0
-    lockAtWave: 5
-  - enemies:
-    - Lemon
-    - Lemon
-    - Lemon
-    - Lemon
-    - Lemon
-    unlockAtWave: 3
-    lockAtWave: 5
+    lockAtWave: 3
   - enemies:
     - Strawberry
     - Strawberry
@@ -37,16 +32,42 @@ MonoBehaviour:
     - Lemon
     - Lemon
     unlockAtWave: 2
-    lockAtWave: 20
+    lockAtWave: 5
   - enemies:
     - Strawberry
     - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    unlockAtWave: 2
+    lockAtWave: 5
+  - enemies:
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    unlockAtWave: 3
+    lockAtWave: 10
+  - enemies:
     - Strawberry
     - Strawberry
     - Strawberry
     - Lemon
+    - Lemon
+    - Lemon
     unlockAtWave: 5
-    lockAtWave: 20
+    lockAtWave: 10
+  - enemies:
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Lemon
+    - Lemon
+    - Lemon
+    unlockAtWave: 10
+    lockAtWave: 100
   - enemies:
     - Strawberry
     - Strawberry
@@ -54,5 +75,14 @@ MonoBehaviour:
     - Strawberry
     - Strawberry
     - Strawberry
-    unlockAtWave: 5
-    lockAtWave: 5
+    unlockAtWave: 10
+    lockAtWave: 100
+  - enemies:
+    - Strawberry
+    - Strawberry
+    - Lemon
+    - Lemon
+    - Lemon
+    - Lemon
+    unlockAtWave: 10
+    lockAtWave: 100

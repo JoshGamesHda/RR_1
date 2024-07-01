@@ -77,12 +77,13 @@ public class Wave
     }
     private void FillClusters(int waveNum)
     {
+        // Extract a list of valid clusters for the current Wave number
         List<Cluster> possibleClusters = new();
-
         for(int i = 0; i < clusterCollection.clusters.Count; i++)
         {
-            if (clusterCollection.clusters[i].unlockAtWave <= waveNum && clusterCollection.clusters[i].lockAtWave >= waveNum) possibleClusters.Add(clusterCollection.clusters[i]);
+            if (clusterCollection.clusters[i].unlockAtWave <= waveNum && clusterCollection.clusters[i].lockAtWave > waveNum) possibleClusters.Add(clusterCollection.clusters[i]);
         }
+
         for (int i = 0; i < GameData.Instance.clustersPerWave; i++)
         {
             // Takes out one random cluster from the cluster list

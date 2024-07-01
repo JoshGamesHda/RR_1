@@ -27,6 +27,7 @@ public class CandySpike : Projectile
 
             ReturnProjectile();
         }
+        if (other.CompareTag(Constants.TAG_MOUNTAIN)) ReturnProjectile();
     }
 
 }

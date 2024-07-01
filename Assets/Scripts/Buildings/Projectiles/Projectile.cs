@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     protected IProjectileBehaviour behaviour;
 
     private float launchTime;
-    private float remainingLifeTime;
+    protected float remainingLifeTime;
 
     public void SetValues(Vector3 origin_, Vector3 target_, float damage_)
     {
