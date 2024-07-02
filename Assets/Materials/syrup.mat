@@ -36,12 +36,12 @@ Material:
     - _Glossiness: 0.25123277
     - _GlossyReflections: 1
     - _Parallax: 0.02
-    - _Smoothness: 0.503
+    - _Smoothness: 0.483
     - _Surface: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.6509434, g: 0.51174796, b: 0.37255248, a: 0.7294118}
-    - _Color: {r: 0.6509434, g: 0.5117479, b: 0.37255245, a: 0.7294118}
+    - _BaseColor: {r: 0.6226415, g: 0.45000833, b: 0.3426486, a: 0.72156864}
+    - _Color: {r: 0.62264144, g: 0.45000827, b: 0.34264857, a: 0.72156864}
   m_BuildTextureStacks: []
 --- !u!114 &8909427679674437923
 MonoBehaviour:
