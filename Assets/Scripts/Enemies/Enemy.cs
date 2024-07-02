@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] protected Transform healthBar;
+    [SerializeField] protected Transform healthMeter;
+    private float originalHealthMeterScaleY;
+    private float originalHealthMeterScaleX;
+
     protected string identifier;
-    protected float hp, attackDamage, attackRate, attackRange, moveSpeed;
+    protected float maxHp, hp, attackDamage, attackRate, attackRange, moveSpeed;
 
     private GameObject destination;
     private Rigidbody rb;
@@ -21,9 +27,26 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();  // Initialize the Animator
         nextTimeToAttack = 0f;
+        originalHealthMeterScaleX = healthMeter.transform.localScale.x;
+        originalHealthMeterScaleY = healthMeter.transform.localScale.y;
     }
 
     protected virtual void FixedUpdate()
+    {
+        Movement();
+        UpdateHealthBar();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            EnemyPool.Instance.ReturnEnemy(identifier, gameObject);
+        }
+    }
+
+    protected void Movement()
     {
         // Look at mountain
         Quaternion lookDirection = Quaternion.LookRotation(destination.transform.position - transform.position);
@@ -55,21 +78,21 @@ public class Enemy : MonoBehaviour
             nextTimeToAttack = Time.time + 1f / attackRate;
         }
     }
-
-    public void TakeDamage(float damage)
-    {
-        hp -= damage;
-        if (hp <= 0)
-        {
-            EnemyPool.Instance.ReturnEnemy(identifier, gameObject);
-        }
-    }
-
     protected virtual void Attack()
     {
         // Implement attack logic here
         GameManager.Instance.mountain.GetComponent<Mountain>().DamageMountain(attackDamage);
     }
+
+    protected void UpdateHealthBar()
+    {
+        healthBar.LookAt(CameraManager.Instance.GetCam().gameObject.transform.position);
+
+        float hpRatio = hp / maxHp;
+
+        healthMeter.localScale = new Vector3(hpRatio * originalHealthMeterScaleX, originalHealthMeterScaleY, healthBar.localScale.z);
+    }
+    
 }
 
 public class Blueberry : Enemy

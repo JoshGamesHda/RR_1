@@ -13,7 +13,8 @@ public class Lemon : Enemy
 
         base.OnEnable();
 
-        hp = GameData.Instance.HPLemon;
+        maxHp = GameData.Instance.HPLemon;
+        hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageLemon;
         attackRate = GameData.Instance.AttackRateLemon;
         attackRange = GameData.Instance.AttackRangeLemon;

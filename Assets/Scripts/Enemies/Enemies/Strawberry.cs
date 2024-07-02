@@ -10,7 +10,8 @@ public class Strawberry : Enemy
 
         base.OnEnable();
 
-        hp = GameData.Instance.HPStrawberry;
+        maxHp = GameData.Instance.HPStrawberry;
+        hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageStrawberry;
         attackRate = GameData.Instance.AttackRateStrawberry;
         attackRange = GameData.Instance.AttackRangeStrawberry;
