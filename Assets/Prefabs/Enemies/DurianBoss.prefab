@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7372949247724445207}
   - component: {fileID: 6107011920906603038}
   - component: {fileID: 6551788003961463902}
+  - component: {fileID: 4568627987819693508}
   m_Layer: 0
   m_Name: DurianBoss
   m_TagString: Enemy
@@ -100,6 +101,27 @@ CapsuleCollider:
   m_Height: 3.98
   m_Direction: 1
   m_Center: {x: 0, y: 1.75, z: 0}
+--- !u!95 &4568627987819693508
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2772258688353648717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 72582faf899db044381ae772bd76f7f5, type: 3}
+  m_Controller: {fileID: 9100000, guid: e424b5ce39e2de94fa47d78f4c2a4b30, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7364475119995299848
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +406,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Durian (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: 72582faf899db044381ae772bd76f7f5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e424b5ce39e2de94fa47d78f4c2a4b30, type: 2}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 72582faf899db044381ae772bd76f7f5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

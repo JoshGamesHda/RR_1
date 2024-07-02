@@ -6,6 +6,7 @@ public class KingDurian : Enemy
 {
     protected override void OnEnable()
     {
+
         identifier = "KingDurian";
 
         base.OnEnable();
@@ -25,6 +26,7 @@ public class KingDurian : Enemy
 
     protected override void Attack()
     {
+        animator.SetTrigger("Attack");
         base.Attack();
     }
 
