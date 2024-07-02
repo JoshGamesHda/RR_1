@@ -44,7 +44,7 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(1) && cameraMovementActive)
+        if (Input.GetKey(Constants.KEY_MOVE_CAMERA) && cameraMovementActive)
         {
             float mouseX = Input.GetAxis("Mouse X") * rotationSpeedX * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * -rotationSpeedZ * Time.deltaTime;

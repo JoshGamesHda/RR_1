@@ -26,7 +26,7 @@ public class Preparation : IPhase
 
         if (Input.GetMouseButton(0) && initialHoverCell != null)
         {
-            if (InputManager.Instance.hoverCell.GetComponent<Cell>() == initialHoverCell && initialHoverCell.buildingOnCell != null)
+            if (InputManager.Instance.hoverCell != null && InputManager.Instance.hoverCell.GetComponent<Cell>() == initialHoverCell && initialHoverCell != null && initialHoverCell.buildingOnCell != null)
             {
                 timeElapsed += Time.deltaTime;
                 if (initialHoverCell.buildingOnCell != null) initialHoverCell.buildingOnCell.ShakeBuilding(timeElapsed/ holdDownForPickUp);
