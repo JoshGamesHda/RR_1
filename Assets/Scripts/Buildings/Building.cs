@@ -15,7 +15,6 @@ public class Building : MonoBehaviour
     public bool placed { get; set; }
     protected Color color;
     private Transform modelTransform;
-
     public bool isSupport { get; protected set; }
     #endregion
 
@@ -50,6 +49,15 @@ public class Building : MonoBehaviour
     public virtual ISupportEffect GetEffect()
     {
         return null;
+    }
+
+    public void ShakeBuilding(float intensity)
+    {
+        modelTransform.localPosition = new Vector3(Random.Range(-Constants.buildingShakeStrength, Constants.buildingShakeStrength) * intensity, 0, Random.Range(-Constants.buildingShakeStrength, Constants.buildingShakeStrength) * intensity);
+    }
+    public void UnShakeBuilding()
+    {
+        modelTransform.localPosition = Vector3.zero;
     }
 }
 

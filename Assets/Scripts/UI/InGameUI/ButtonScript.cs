@@ -23,7 +23,10 @@ public class ButtonScript : MonoBehaviour
     private void OnButtonClick()
     {
         BuildingManager.Instance.SetActiveBuilding(BuildingPool.Instance.GetBuilding(assignedBuilding.GetComponent<Building>().identifier));
+        BuildingPool.Instance.lastPickedBuilding = assignedBuilding.GetComponent<Building>().identifier;
+
         assignedBuilding = null;
+        
         UIManager.Instance.ReturnBuildingsToPool();
     }
 }
