@@ -104,6 +104,20 @@ public class GameData : MonoBehaviour
     public float AttackRangeLemon;
     public float MoveSpeedLemon;
     public float ProjSpeedLemon;
+
+    [Header("Blueberry")]
+    public float HPBlueberry;
+    public float AttackDamageBlueberry;
+    public float AttackRateBlueberry;
+    public float AttackRangeBlueberry;
+    public float MoveSpeedBlueberry;
+
+    [Header("KingDurian")]
+    public float HPDurian;
+    public float AttackDamageDurian;
+    public float AttackRateDurian;
+    public float AttackRangeDurian;
+    public float MoveSpeedDurian;
     #endregion
 
     public void UpdateOnceAfterEachWave()

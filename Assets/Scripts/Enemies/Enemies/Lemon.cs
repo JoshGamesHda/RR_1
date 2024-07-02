@@ -37,5 +37,10 @@ public class Lemon : Enemy
         GameObject proj = Instantiate(projectile);
         proj.GetComponent<LemonSeed>().SetValues(shootPos.position, GameManager.Instance.mountain.transform.position, attackDamage);
     }
+
+    protected override void Die()
+    {
+        base.Die();
+    }
 }
 

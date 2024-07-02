@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Strawberry : Enemy
+public class KingDurian : Enemy
 {
     protected override void OnEnable()
     {
-        identifier = "Strawberry";
+        identifier = "KingDurian";
 
         base.OnEnable();
 
-        maxHp = GameData.Instance.HPStrawberry;
+        maxHp = GameData.Instance.HPDurian;
         hp = maxHp;
-        attackDamage = GameData.Instance.AttackDamageStrawberry;
-        attackRate = GameData.Instance.AttackRateStrawberry;
-        attackRange = GameData.Instance.AttackRangeStrawberry;
-        moveSpeed = GameData.Instance.MoveSpeedStrawberry;
+        attackDamage = GameData.Instance.AttackDamageDurian;
+        attackRate = GameData.Instance.AttackRateDurian;
+        attackRange = GameData.Instance.AttackRangeDurian;
+        moveSpeed = GameData.Instance.MoveSpeedDurian;
     }
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();

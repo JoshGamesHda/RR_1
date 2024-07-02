@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         hp -= damage;
         if (hp <= 0)
         {
-            EnemyPool.Instance.ReturnEnemy(identifier, gameObject);
+            Die();
         }
     }
 
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
             if (collider.CompareTag(Constants.TAG_MOUNTAIN))
             {
                 closeEnough = true;
-                animator.SetTrigger("Attack");  // Trigger attack animation
+                if(animator != null) animator.SetTrigger("Attack");  // Trigger attack animation
             }
         }
 
@@ -93,22 +93,8 @@ public class Enemy : MonoBehaviour
         healthMeter.localScale = new Vector3(hpRatio * originalHealthMeterScaleX, originalHealthMeterScaleY, healthBar.localScale.z);
     }
     
-}
-
-public class Blueberry : Enemy
-{
-    protected override void OnEnable()
+    protected virtual void Die()
     {
-        base.OnEnable();
-    }
-
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
-    protected override void Attack()
-    {
-        base.Attack();
+        EnemyPool.Instance.ReturnEnemy(identifier, gameObject);
     }
 }
