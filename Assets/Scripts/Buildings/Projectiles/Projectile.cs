@@ -5,7 +5,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Projectile : MonoBehaviour
 {
-
     public string identifier { get; protected set; }
 
     protected float speed;

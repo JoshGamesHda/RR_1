@@ -24,6 +24,9 @@ public static class Constants
     public static string ID_DAMAGEUP = "DamageUp";
     public static string ID_RANGEUP = "RangeUp";
 
+    // Projectile identifiers
+    public static string ID_PROJECTILE_LEMONSEED = "LemonSeed";
+
     // Values
     public static float holdForPickUpLength = 0.3f;
     public static float buildingShakeStrength = 0.2f;

@@ -34,7 +34,7 @@ public class Lemon : Enemy
 
     private void ShootProjectile()
     {
-        GameObject proj = Instantiate(projectile);
+        GameObject proj = ProjectilePool.Instance.GetProjectile(Constants.ID_PROJECTILE_LEMONSEED);
         proj.GetComponent<LemonSeed>().SetValues(shootPos.position, GameManager.Instance.mountain.transform.position, attackDamage);
     }
 
@@ -43,4 +43,3 @@ public class Lemon : Enemy
         base.Die();
     }
 }
-
