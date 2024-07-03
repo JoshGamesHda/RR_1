@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    #region Singleton
     private static CameraManager instance;
     private CameraManager() { }
     public static CameraManager Instance
@@ -23,6 +24,7 @@ public class CameraManager : MonoBehaviour
             return instance;
         }
     }
+    #endregion
 
     [SerializeField] private GameObject camParent;
     [SerializeField] private Camera cam;
@@ -31,9 +33,10 @@ public class CameraManager : MonoBehaviour
         rotationSpeedX = 2000f,
         rotationSpeedZ = 1000f;
 
-    private float 
-        yaw = 0f, 
+    private float
+        yaw = 0f,
         pitch = 45f;
+
 
     public bool cameraMovementActive { get; set; }
     void OnEnable()

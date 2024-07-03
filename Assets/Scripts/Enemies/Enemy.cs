@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] protected Transform healthBarPosition;
     [SerializeField] protected Transform healthBar;
     [SerializeField] protected Transform healthMeter;
     private float originalHealthMeterScaleY;
@@ -86,8 +87,6 @@ public class Enemy : MonoBehaviour
 
     protected void UpdateHealthBar()
     {
-        healthBar.LookAt(CameraManager.Instance.GetCam().gameObject.transform.position);
-
         float hpRatio = hp / maxHp;
 
         healthMeter.localScale = new Vector3(hpRatio * originalHealthMeterScaleX, originalHealthMeterScaleY, healthBar.localScale.z);

@@ -25,6 +25,6 @@ public static class Constants
     public static string ID_RANGEUP = "RangeUp";
 
     // Values
-    public static float holdForPickUpLength = 0.5f;
+    public static float holdForPickUpLength = 0.3f;
     public static float buildingShakeStrength = 0.2f;
 }

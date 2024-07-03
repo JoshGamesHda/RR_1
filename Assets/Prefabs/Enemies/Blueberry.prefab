@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8991141887800929611}
   - component: {fileID: 2545497538458359974}
   - component: {fileID: 2904099664191605673}
-  - component: {fileID: 3605151464154212397}
+  - component: {fileID: 6773721774772176018}
   m_Layer: 0
   m_Name: Blueberry
   m_TagString: Enemy
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f166566294a5c4b8817f2b2d68ea16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBarPosition: {fileID: 0}
   healthBar: {fileID: 4248215225775005414}
   healthMeter: {fileID: 8738485284349585777}
 --- !u!54 &2904099664191605673
@@ -77,8 +78,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &3605151464154212397
-SphereCollider:
+--- !u!65 &6773721774772176018
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,7 +97,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.3
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1151720995922863499
 GameObject:
