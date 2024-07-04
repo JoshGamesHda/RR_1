@@ -20,6 +20,11 @@ public class ButtonScript : MonoBehaviour
         if(assignedBuilding != null)
         textComp.text = assignedBuilding.GetComponent<Building>().buttonData.buildingName + "\n" + assignedBuilding.GetComponent<Building>().buttonData.buildingDescription;
     }
+
+    public void InitializeButtonData()
+    {
+
+    }
     private void OnButtonClick()
     {
         BuildingManager.Instance.SetActiveBuilding(BuildingPool.Instance.GetBuilding(assignedBuilding.GetComponent<Building>().identifier));
