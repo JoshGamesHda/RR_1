@@ -28,13 +28,22 @@ public class Lemon : Enemy
 
     protected override void Attack()
     {
-        Debug.Log("Attack of Lemon");
-        ShootProjectile(); // Call base Attack method to trigger general attack behavior
-        animator.SetTrigger("Attack"); // Trigger the "Attack" animation parameter
+        if (!attacking)
+        {
+            nextTimeToAttack = Time.time + 1f / attackRate;
+            attacking = true;
+        }
+        if (Time.time >= nextTimeToAttack && attacking)
+        {
+            nextTimeToAttack = Time.time + 1f / attackRate;
+
+            ShootProjectile();
+        }
     }
 
     private void ShootProjectile()
     {
+        Debug.Log("Seed shot");
         GameObject proj = ProjectilePool.Instance.GetProjectile(Constants.ID_PROJECTILE_LEMONSEED);
         proj.GetComponent<LemonSeed>().SetValues(shootPos.position, GameManager.Instance.mountain.transform.position, attackDamage);
     }

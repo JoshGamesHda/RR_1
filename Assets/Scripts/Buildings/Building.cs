@@ -144,7 +144,6 @@ public class AttackTower : Building
 
         if (projectile != null)
         {
-            projectile.transform.position = transform.position + shootOffset;
             Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + 0.5f, target.transform.position.z);
             projectile.GetComponent<Projectile>().SetValues(transform.position + shootOffset, targetPosition, damage);
         }

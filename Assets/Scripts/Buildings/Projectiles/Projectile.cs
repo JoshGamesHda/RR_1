@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
     public void SetValues(Vector3 origin_, Vector3 target_, float damage_)
     {
         origin = origin_;
+        transform.position = origin;
         target = target_;
         damage = damage_;
 

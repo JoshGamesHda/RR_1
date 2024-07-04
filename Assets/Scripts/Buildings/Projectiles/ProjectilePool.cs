@@ -84,6 +84,7 @@ public class ProjectilePool : MonoBehaviour
             if (projectilePool[i].identifier == identifier)
             {
                 projectile.SetActive(false);
+                if (identifier == Constants.ID_PROJECTILE_LEMONSEED) projectile.transform.position = new Vector3(0, 50, 0);
                 projectilePool[i].projectileObjects.Enqueue(projectile);
 
                 return;

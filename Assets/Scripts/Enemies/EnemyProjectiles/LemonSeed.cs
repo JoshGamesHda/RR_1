@@ -10,11 +10,13 @@ public class LemonSeed : Projectile
 
     private void OnEnable()
     {
-        identifier = "CandyCorn";
+
+
+        identifier = Constants.ID_PROJECTILE_LEMONSEED;
 
         behaviour = new Trajectory();
 
-        speed = GameData.Instance.CandyCornProjSpeed;
+        speed = GameData.Instance.ProjSpeedLemon;
     }
 
     protected override void Update()
@@ -26,6 +28,7 @@ public class LemonSeed : Projectile
     {
         if (other.CompareTag(Constants.TAG_MOUNTAIN))
         {
+            Debug.Log("Damaging Mountain");
             other.gameObject.GetComponent<Mountain>().DamageMountain(damage);
 
             ReturnProjectile();

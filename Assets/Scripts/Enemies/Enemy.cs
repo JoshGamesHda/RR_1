@@ -21,8 +21,8 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
     protected Animator animator;  // Reference to the Animator
 
-    private float nextTimeToAttack;
-    private bool attacking;
+    protected float nextTimeToAttack;
+    protected bool attacking;
     #endregion
     protected virtual void OnEnable()
     {
@@ -83,7 +83,6 @@ public class Enemy : MonoBehaviour
     }
     protected virtual void Attack()
     {
-        Debug.Log("Attack of Enemy");
         if (!attacking)
         {
             nextTimeToAttack = Time.time + 1f / attackRate;
