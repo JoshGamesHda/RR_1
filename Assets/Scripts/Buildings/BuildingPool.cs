@@ -88,7 +88,6 @@ public class BuildingPool : MonoBehaviour
         Debug.Log("Could not return building to pool");
     }
 
-    public string lastPickedBuilding { private get; set; }
     private Queue<string> lastBuildings = new();
     public GameObject GetRandomBuilding()
     {
@@ -99,55 +98,50 @@ public class BuildingPool : MonoBehaviour
         List<string> availableBuildings = new();
 
         #region the ifs
-        if (GameData.Instance.SingleDamageTower && lastPickedBuilding != Constants.ID_SINGLE_DAMAGE && !lastBuildings.Contains(Constants.ID_SINGLE_DAMAGE))
+        if (GameData.Instance.SingleDamageTower && !lastBuildings.Contains(Constants.ID_SINGLE_DAMAGE))
         {
             availableBuildings.Add(Constants.ID_SINGLE_DAMAGE);
             attackTowers++;
         }
         else towerAmount--;
 
-        if (GameData.Instance.AoeTower && lastPickedBuilding != Constants.ID_AOE && !lastBuildings.Contains(Constants.ID_AOE))
+        if (GameData.Instance.AoeTower && !lastBuildings.Contains(Constants.ID_AOE))
         {
             availableBuildings.Add(Constants.ID_AOE);
             attackTowers++;
         }
         else towerAmount--;
 
-        if (GameData.Instance.FireRateTower && lastPickedBuilding != Constants.ID_FIRERATE && !lastBuildings.Contains(Constants.ID_FIRERATE))
+        if (GameData.Instance.FireRateTower && !lastBuildings.Contains(Constants.ID_FIRERATE))
         {
             attackTowers++;
             availableBuildings.Add(Constants.ID_FIRERATE);
         }
         else towerAmount--;
 
-        if (GameData.Instance.SpeedUpBuilding && lastPickedBuilding != Constants.ID_SPEEDUP && !lastBuildings.Contains(Constants.ID_SPEEDUP))
+        if (GameData.Instance.SpeedUpBuilding && !lastBuildings.Contains(Constants.ID_SPEEDUP))
         {
+            if(GameManager.Instance.waveNum > 0)
             availableBuildings.Add(Constants.ID_SPEEDUP);
         }
-
         else towerAmount--;
 
-        if (GameData.Instance.DamageUpBuilding && lastPickedBuilding != Constants.ID_DAMAGEUP && !lastBuildings.Contains(Constants.ID_DAMAGEUP))
+        if (GameData.Instance.DamageUpBuilding && !lastBuildings.Contains(Constants.ID_DAMAGEUP))
         {
-            availableBuildings.Add(Constants.ID_DAMAGEUP);
+            if (GameManager.Instance.waveNum > 0)
+                availableBuildings.Add(Constants.ID_DAMAGEUP);
         }
         else towerAmount--;
 
-        if (GameData.Instance.RangeUpBuilding && lastPickedBuilding != Constants.ID_RANGEUP && !lastBuildings.Contains(Constants.ID_RANGEUP))
+        if (GameData.Instance.RangeUpBuilding && !lastBuildings.Contains(Constants.ID_RANGEUP))
         {
+            if (GameManager.Instance.waveNum > 0)
                 availableBuildings.Add(Constants.ID_RANGEUP);
         }
         else towerAmount--;
         #endregion
 
         int rand;
-        if (GameManager.Instance.waveNum == 0)
-        {
-            rand = UnityEngine.Random.Range(0, availableBuildings.Count);
-            rand %= attackTowers;
-            return GetBuilding(availableBuildings[rand]);
-        }
-
         rand = UnityEngine.Random.Range(0, availableBuildings.Count);
 
         if(lastBuildings.Count < 3) lastBuildings.Enqueue(availableBuildings[rand]);

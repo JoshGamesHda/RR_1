@@ -26,7 +26,7 @@ public class LemonSeed : Projectile
     {
         if (other.CompareTag(Constants.TAG_MOUNTAIN))
         {
-            other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            other.gameObject.GetComponent<Mountain>().DamageMountain(damage);
 
             ReturnProjectile();
         }
