@@ -31,9 +31,46 @@ public class UIManager : MonoBehaviour
     // Just leave this public, for whatever reason adding {get; set; } messes up the SerializeField
     public List<GameObject> buttons;
 
+    [Header("General UI")]
     [SerializeField] private GameObject deleteBuilding;
     [SerializeField] private GameObject mountainHealth;
     [SerializeField] private GameObject waveNum;
+
+    #region TowerData
+    [Header("Tower Data")]
+    [Header("Attack Tower")]
+    [SerializeField] private Sprite backgroundAttackTower;
+    [SerializeField] private Sprite shapeAttackTower;
+    [Header("Support Building")]
+    [SerializeField] private Sprite backgroundSupportBuilding;
+    [Header("SingleDamage Tower")]
+    [SerializeField] private string buildingNameSingleDamage;
+    [SerializeField] private string descriptionSingleDamage;
+    [SerializeField] private Sprite imageSingleDamage;
+    [Header("AOE Tower")]
+    [SerializeField] private string buildingNameAOE;
+    [SerializeField] private string descriptionAOE;
+    [SerializeField] private Sprite imageAOE;
+    [Header("FireRate Tower")]
+    [SerializeField] private string buildingNameFireRate;
+    [SerializeField] private string descriptionFireRate;
+    [SerializeField] private Sprite imageFireRate;
+    [Header("SpeedUp")]
+    [SerializeField] private string buildingNameSpeedUp;
+    [SerializeField] private string descriptionSpeedUp;
+    [SerializeField] private Sprite imageSpeedUp;
+    [SerializeField] private Sprite shapeSpeedUp;
+    [Header("DamageUp")]
+    [SerializeField] private string buildingNameDamageUp;
+    [SerializeField] private string descriptionDamageUp;
+    [SerializeField] private Sprite imageDamageUp;
+    [SerializeField] private Sprite shapeDamageUp;
+    [Header("RangeUp")]
+    [SerializeField] private string buildingNameRangeUp;
+    [SerializeField] private string descriptionRangeUp;
+    [SerializeField] private Sprite imageRangeUp;
+    [SerializeField] private Sprite shapeRangeUp;
+    #endregion
 
     private GameObject lastBuilding;
 
