@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Transform healthBarPosition;
     [SerializeField] protected Transform healthBar;
     [SerializeField] protected Transform healthMeter;
-    private float originalHealthMeterScaleY;
-    private float originalHealthMeterScaleX;
+    private Vector3 originalHealthScale;
+
 
     protected string identifier;
     protected float maxHp, hp, attackDamage, attackRate, attackRange, moveSpeed;
@@ -24,20 +24,24 @@ public class Enemy : MonoBehaviour
     protected float nextTimeToAttack;
     protected bool attacking;
     #endregion
+    
+    private void Awake()
+    {
+        originalHealthScale = healthMeter.localScale;
+    }
     protected virtual void OnEnable()
     {
         destination = GameManager.Instance.mountain;
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();  // Initialize the Animator
-        nextTimeToAttack = 10f;
-        originalHealthMeterScaleX = healthMeter.transform.localScale.x;
-        originalHealthMeterScaleY = healthMeter.transform.localScale.y;
+        animator = GetComponent<Animator>();
+
+        nextTimeToAttack = 0f;
     }
 
     protected virtual void FixedUpdate()
     {
         Movement();
-        UpdateHealthBar();
+        
     }
 
     public void TakeDamage(float damage)
@@ -47,6 +51,8 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+
+        UpdateHealthBar();
     }
 
     protected void Movement()
@@ -74,8 +80,8 @@ public class Enemy : MonoBehaviour
             Vector3 moveDirection = (destination.transform.position - transform.position).normalized * moveSpeed;
             rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
         }
+
         // If close enough, attack
-        
         else 
         {
             Attack();
@@ -100,11 +106,11 @@ public class Enemy : MonoBehaviour
     {
         float hpRatio = hp / maxHp;
 
-        healthMeter.localScale = new Vector3(hpRatio * originalHealthMeterScaleX, originalHealthMeterScaleY, healthBar.localScale.z);
+        healthMeter.localScale = new Vector3(hpRatio * originalHealthScale.x, originalHealthScale.y, healthBar.localScale.z);
     }
     public void ResetHealthBarScale()
     {
-        healthMeter.localScale = new Vector3(originalHealthMeterScaleX, originalHealthMeterScaleY, healthBar.localScale.z);
+        healthMeter.localScale = originalHealthScale;
     }
     
     protected virtual void Die()
