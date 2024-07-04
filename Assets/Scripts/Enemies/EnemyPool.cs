@@ -55,6 +55,7 @@ public class EnemyPool : MonoBehaviour
                 {
                     GameObject enemy = enemyPool[i].enemyObjects.Dequeue();
                     enemy.SetActive(true);
+                    enemy.GetComponent<Enemy>().ResetHealthBarScale();
 
                     return enemy;
                 }

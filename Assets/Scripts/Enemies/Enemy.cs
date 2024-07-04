@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
+    #region Fields
     [SerializeField] protected Transform healthBarPosition;
     [SerializeField] protected Transform healthBar;
     [SerializeField] protected Transform healthMeter;
@@ -21,13 +22,14 @@ public class Enemy : MonoBehaviour
     protected Animator animator;  // Reference to the Animator
 
     private float nextTimeToAttack;
-
+    private bool attacking;
+    #endregion
     protected virtual void OnEnable()
     {
         destination = GameManager.Instance.mountain;
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();  // Initialize the Animator
-        nextTimeToAttack = 0f;
+        nextTimeToAttack = 10f;
         originalHealthMeterScaleX = healthMeter.transform.localScale.x;
         originalHealthMeterScaleY = healthMeter.transform.localScale.y;
     }
@@ -62,7 +64,7 @@ public class Enemy : MonoBehaviour
             if (collider.CompareTag(Constants.TAG_MOUNTAIN))
             {
                 closeEnough = true;
-                if(animator != null) animator.SetTrigger("Attack");  // Trigger attack animation
+                if (animator != null) animator.SetTrigger("Attack");
             }
         }
 
@@ -73,16 +75,26 @@ public class Enemy : MonoBehaviour
             rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
         }
         // If close enough, attack
-        else if (Time.time >= nextTimeToAttack)
+        
+        else 
         {
             Attack();
-            nextTimeToAttack = Time.time + 1f / attackRate;
         }
     }
     protected virtual void Attack()
     {
-        // Implement attack logic here
-        GameManager.Instance.mountain.GetComponent<Mountain>().DamageMountain(attackDamage);
+        Debug.Log("Attack of Enemy");
+        if (!attacking)
+        {
+            nextTimeToAttack = Time.time + 1f / attackRate;
+            attacking = true;
+        }
+        if (Time.time >= nextTimeToAttack && attacking)
+        {
+            nextTimeToAttack = Time.time + 1f / attackRate;
+
+            GameManager.Instance.mountain.GetComponent<Mountain>().DamageMountain(attackDamage);
+        }
     }
 
     protected void UpdateHealthBar()
@@ -90,6 +102,10 @@ public class Enemy : MonoBehaviour
         float hpRatio = hp / maxHp;
 
         healthMeter.localScale = new Vector3(hpRatio * originalHealthMeterScaleX, originalHealthMeterScaleY, healthBar.localScale.z);
+    }
+    public void ResetHealthBarScale()
+    {
+        healthMeter.localScale = new Vector3(originalHealthMeterScaleX, originalHealthMeterScaleY, healthBar.localScale.z);
     }
     
     protected virtual void Die()

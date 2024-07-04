@@ -28,6 +28,7 @@ public class Lemon : Enemy
 
     protected override void Attack()
     {
+        Debug.Log("Attack of Lemon");
         ShootProjectile(); // Call base Attack method to trigger general attack behavior
         animator.SetTrigger("Attack"); // Trigger the "Attack" animation parameter
     }

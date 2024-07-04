@@ -5,23 +5,18 @@ using UnityEngine;
 
 public class Mountain : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI hpText;
     private float hp;
 
     void Start()
     {
         hp = GameData.Instance.initialMountainHP;
-
-    }
-
-    void Update()
-    {
-        hpText.text = hp.ToString();
+        UIManager.Instance.UpdateMountainHealthDisplay((int)hp);
     }
 
     public void DamageMountain(float dmg)
     {
         hp -= dmg;
+        UIManager.Instance.UpdateMountainHealthDisplay((int)hp);
     }
 
     public bool IsAlive()
@@ -32,5 +27,6 @@ public class Mountain : MonoBehaviour
     public void ResetHP()
     {
         hp = GameData.Instance.initialMountainHP;
+        UIManager.Instance.UpdateMountainHealthDisplay((int)hp);
     }
 }
