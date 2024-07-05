@@ -13,6 +13,7 @@ public static class Constants
     // Controls
     public static KeyCode KEY_BEGIN_WAVE = KeyCode.Space;
     public static KeyCode KEY_HIDE_SHOP = KeyCode.Space;
+    public static KeyCode KEY_PLACEMENT = KeyCode.Mouse0;
     public static KeyCode KEY_ROTATE_BUILDING = KeyCode.Mouse1;
     public static KeyCode KEY_MOVE_CAMERA = KeyCode.Mouse2;
 

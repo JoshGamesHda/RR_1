@@ -43,7 +43,6 @@ public class Lemon : Enemy
 
     private void ShootProjectile()
     {
-        Debug.Log("Seed shot");
         GameObject proj = ProjectilePool.Instance.GetProjectile(Constants.ID_PROJECTILE_LEMONSEED);
         proj.GetComponent<LemonSeed>().SetValues(shootPos.position, GameManager.Instance.mountain.transform.position, attackDamage);
     }

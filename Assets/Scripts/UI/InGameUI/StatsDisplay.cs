@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class StatsDisplay : MonoBehaviour
+public class StatDisplay : MonoBehaviour
 {
     [SerializeField] private Image background;
     [SerializeField] private Image buildingImage;
@@ -28,7 +28,7 @@ public class StatsDisplay : MonoBehaviour
         buildingStats.enabled = false;
         buildingShape.enabled = false;
     }
-    public void ShowStatDiscplay()
+    public void ShowStatDisplay()
     {
         background.enabled = true;
         buildingImage.enabled = true;
@@ -37,8 +37,19 @@ public class StatsDisplay : MonoBehaviour
         buildingShape.enabled = true;
     }
 
-    private void UpdateStats(Building displayBuilding)
+    private void UpdateStats(Building b)
     {
-
+        string text;
+        if (!b.isSupport)
+        {
+            AttackTower a = b as AttackTower;
+            //text = "Damage: " + a.damage;
+               
+        }
+        else if(b.isSupport) 
+        {
+            SupportBuilding s = b as SupportBuilding;
+            //text = "Effect Strength: " + 
+        }
     }
 }

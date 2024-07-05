@@ -31,10 +31,11 @@ public class UIManager : MonoBehaviour
     // Just leave this public, for whatever reason adding {get; set; } messes up the SerializeField
     public List<GameObject> buttons;
 
-    [Header("General UI")]
+    [Header("UI elements")]
     [SerializeField] private GameObject deleteBuilding;
     [SerializeField] private GameObject mountainHealth;
     [SerializeField] private GameObject waveNum;
+    [SerializeField] private GameObject statDisplay;
 
     private GameObject lastBuilding;
 
@@ -103,5 +104,15 @@ public class UIManager : MonoBehaviour
     public void UpdateWaveNumDisplay(int newWaveNum)
     {
         waveNum.GetComponent<WaveNumUI>().SetWaveNum(newWaveNum);
+    }
+
+    public void ShowStatsDisplay(Building building)
+    {
+        statDisplay.GetComponent<StatDisplay>().UpdateStatDisplay(building);
+        statDisplay.GetComponent<StatDisplay>().ShowStatDisplay();
+    }
+    public void HideStatDisplay()
+    {
+        statDisplay.GetComponent<StatDisplay>().HideStatDisplay();
     }
 }
