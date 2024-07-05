@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClusterCollection
   clusters:
   - enemies:
-    - KingDurian
+    - Strawberry
+    - Strawberry
+    - Strawberry
     unlockAtWave: 0
     lockAtWave: 3
   - enemies:

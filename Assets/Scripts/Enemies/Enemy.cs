@@ -8,11 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Enemy : MonoBehaviour
 {
     #region Fields
-    [SerializeField] protected Transform healthBarPosition;
-    [SerializeField] protected Transform healthBar;
-    [SerializeField] protected Transform healthMeter;
-    private Vector3 originalHealthScale;
-
+    [SerializeField] protected ProgressBar healthMeter;
 
     protected string identifier;
     protected float maxHp, hp, attackDamage, attackRate, attackRange, moveSpeed;
@@ -25,10 +21,6 @@ public class Enemy : MonoBehaviour
     protected bool attacking;
     #endregion
     
-    private void Awake()
-    {
-        originalHealthScale = healthMeter.localScale;
-    }
     protected virtual void OnEnable()
     {
         destination = GameManager.Instance.mountain;
@@ -36,12 +28,18 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
 
         nextTimeToAttack = 0f;
+
+        
+    }
+
+    private void Start()
+    {
+        healthMeter.InitializeBar(maxHp);
     }
 
     protected virtual void FixedUpdate()
     {
         Movement();
-        
     }
 
     public void TakeDamage(float damage)
@@ -52,7 +50,7 @@ public class Enemy : MonoBehaviour
             Die();
         }
 
-        UpdateHealthBar();
+        healthMeter.UpdateBar(hp);
     }
 
     protected void Movement()
@@ -102,15 +100,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected void UpdateHealthBar()
+    public void ResetHealthBar()
     {
-        float hpRatio = hp / maxHp;
-
-        healthMeter.localScale = new Vector3(hpRatio * originalHealthScale.x, originalHealthScale.y, healthBar.localScale.z);
-    }
-    public void ResetHealthBarScale()
-    {
-        healthMeter.localScale = originalHealthScale;
+        healthMeter.ResetValue();
     }
     
     protected virtual void Die()
