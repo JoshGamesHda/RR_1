@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1fe2a11c572914fa70161dd95f7777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingName: Gatling Globe
+  description: This guy shoots pretty fast
+  image: {fileID: 21300000, guid: adaff7a7bc3e04d4fb078874429c9af6, type: 3}
+  shape: {fileID: 21300000, guid: c69800e20bbf19844917c0da03a6cd22, type: 3}
   shootPointTransform: {fileID: 7695287866458439700}
 --- !u!1 &769482379174317600
 GameObject:

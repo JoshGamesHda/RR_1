@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b31723fc7c68bf468818ba609dfd4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingName: Speed Factory
+  description: Accelerates a Tower's rate of fire
+  image: {fileID: 21300000, guid: 757061d1c2435e2479e726c4d1885ee3, type: 3}
+  shape: {fileID: 21300000, guid: 0921644216f1e3148966b02f424d6a83, type: 3}
 --- !u!1001 &1043427037238762649
 PrefabInstance:
   m_ObjectHideFlags: 0

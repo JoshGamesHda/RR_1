@@ -46,6 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b155311fa4ea1a4482b31705c2f61ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingName: Candy Ballista
+  description: Launches powerful Candy Spikes at foes
+  image: {fileID: 21300000, guid: 297af87b5bee1b845b83ffea24d87a18, type: 3}
+  shape: {fileID: 21300000, guid: 40752188d7ca7a24f82a9966df29186c, type: 3}
   shootPointTransform: {fileID: 7695287866458439700}
 --- !u!1 &3210592340035627467
 GameObject:

@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class ButtonData : ScriptableObject
 {
-    public Building buildingType { get; set; }
-
+    public bool isAttackTower { get; set; }
     public string identifier { get; set; }
     public string buildingName { get; set; }
     public string buildingDescription { get; set;}
 
-    public Image towerImage { get; set;}
-    public Image towerShape { get; set;}
+    public Sprite buildingImage { get; set;}
+    public Sprite buildingShape { get; set;}
 }

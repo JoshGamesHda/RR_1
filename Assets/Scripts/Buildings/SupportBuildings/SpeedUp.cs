@@ -10,9 +10,6 @@ public class SpeedUp : SupportBuilding
 
         identifier = "SpeedUp";
 
-        buttonData.buildingName = "Sugar Factory";
-        buttonData.buildingDescription = "Accelerates a tower's rate of fire";
-
         effect = new EffectSpeedUp();
 
         color = Color.yellow;
@@ -21,7 +18,5 @@ public class SpeedUp : SupportBuilding
         AddBlock(new Block(0, 0, this));
         AddBlock(new Block(0, 1, this));
         AddBlock(new Block(0, -1, this));
-
-        buttonData.buildingType = this;
     }
 }

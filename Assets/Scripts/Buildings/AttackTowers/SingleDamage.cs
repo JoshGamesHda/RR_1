@@ -10,11 +10,6 @@ public class SingleDamage : AttackTower
 
         identifier = "SingleDamage";
 
-        buttonData.buildingName = "Candy Spike Ballista";
-        buttonData.buildingDescription = "Extra spikey";
-        
-        buttonData.buildingType = this;
-
         projectileType = "CandySpike";
 
         rawDamage = GameData.Instance.rawDamageBallista;

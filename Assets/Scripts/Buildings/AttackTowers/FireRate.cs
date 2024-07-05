@@ -10,11 +10,6 @@ public class FireRate : AttackTower
 
         identifier = "FireRate";
 
-        buttonData.buildingName = "Gatling Globe";
-        buttonData.buildingDescription = "This guy shoots pretty fast";
-
-        buttonData.buildingType = this;
-
         projectileType = "CandyCorn";
 
         rawDamage = GameData.Instance.rawDamageFireRate;

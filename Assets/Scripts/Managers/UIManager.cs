@@ -36,42 +36,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mountainHealth;
     [SerializeField] private GameObject waveNum;
 
-    #region TowerData
-    [Header("Tower Data")]
-    [Header("Attack Tower")]
-    [SerializeField] private Sprite backgroundAttackTower;
-    [SerializeField] private Sprite shapeAttackTower;
-    [Header("Support Building")]
-    [SerializeField] private Sprite backgroundSupportBuilding;
-    [Header("SingleDamage Tower")]
-    [SerializeField] private string buildingNameSingleDamage;
-    [SerializeField] private string descriptionSingleDamage;
-    [SerializeField] private Sprite imageSingleDamage;
-    [Header("AOE Tower")]
-    [SerializeField] private string buildingNameAOE;
-    [SerializeField] private string descriptionAOE;
-    [SerializeField] private Sprite imageAOE;
-    [Header("FireRate Tower")]
-    [SerializeField] private string buildingNameFireRate;
-    [SerializeField] private string descriptionFireRate;
-    [SerializeField] private Sprite imageFireRate;
-    [Header("SpeedUp")]
-    [SerializeField] private string buildingNameSpeedUp;
-    [SerializeField] private string descriptionSpeedUp;
-    [SerializeField] private Sprite imageSpeedUp;
-    [SerializeField] private Sprite shapeSpeedUp;
-    [Header("DamageUp")]
-    [SerializeField] private string buildingNameDamageUp;
-    [SerializeField] private string descriptionDamageUp;
-    [SerializeField] private Sprite imageDamageUp;
-    [SerializeField] private Sprite shapeDamageUp;
-    [Header("RangeUp")]
-    [SerializeField] private string buildingNameRangeUp;
-    [SerializeField] private string descriptionRangeUp;
-    [SerializeField] private Sprite imageRangeUp;
-    [SerializeField] private Sprite shapeRangeUp;
-    #endregion
-
     private GameObject lastBuilding;
 
     void OnEnable()
@@ -85,18 +49,14 @@ public class UIManager : MonoBehaviour
     {
         foreach(GameObject button in buttons)
         {
-            button.GetComponent<Button>().enabled = true;
-            button.GetComponent<Image>().enabled = true;
-            button.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+            button.GetComponent<ButtonScript>().ShowButton();
         }
     }
     public void HideButtons()
     {
         foreach (GameObject button in buttons)
         {
-            button.GetComponent<Button>().enabled = false;
-            button.GetComponent<Image>().enabled = false;
-            button.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+            button.GetComponent<ButtonScript>().HideButton();
         }
     }
     public void RandomizeButtons()
@@ -108,6 +68,7 @@ public class UIManager : MonoBehaviour
             lastBuilding.SetActive(false);
 
             buttonObject.GetComponent<ButtonScript>().assignedBuilding = lastBuilding;
+            buttonObject.GetComponent<ButtonScript>().InitializeButtonData(lastBuilding.GetComponent<Building>().buttonData);
         }
        ShowButtons();
     }

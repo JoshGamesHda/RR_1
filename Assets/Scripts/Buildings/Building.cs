@@ -16,6 +16,12 @@ public class Building : MonoBehaviour
     protected Color color;
     private Transform modelTransform;
     public bool isSupport { get; protected set; }
+
+    [Header("Button Data")]
+    [SerializeField] private string buildingName;
+    [SerializeField] private string description;
+    [SerializeField] private Sprite image;
+    [SerializeField] private Sprite shape;
     #endregion
 
     protected virtual void OnEnable()
@@ -24,6 +30,11 @@ public class Building : MonoBehaviour
         blocks = new();
         placed = false;
         modelTransform = transform.GetChild(0);
+
+        buttonData.buildingName = buildingName;
+        buttonData.buildingDescription = description;
+        buttonData.buildingImage = image;
+        buttonData.buildingShape = shape;
     }
 
     public void Rotate()
@@ -81,6 +92,8 @@ public class AttackTower : Building
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        buttonData.isAttackTower = true;
 
         isSupport = false;
 
@@ -222,6 +235,8 @@ public class SupportBuilding : Building
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        buttonData.isAttackTower = false;
     }
 
     public override ISupportEffect GetEffect()

@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f77d48c8b92b54a91e6e585198ea29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingName: Radar Unit
+  description: Increases your Tower's range
+  image: {fileID: 21300000, guid: 7ee3d0d604b3de149bbbb8c06eef6f90, type: 3}
+  shape: {fileID: 21300000, guid: 48b1d79e681a22342930d3318a1be350, type: 3}
 --- !u!1001 &3398996263869665404
 PrefabInstance:
   m_ObjectHideFlags: 0

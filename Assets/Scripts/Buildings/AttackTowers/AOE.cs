@@ -10,11 +10,6 @@ public class AOE : AttackTower
 
         identifier = "AOE";
 
-        buttonData.buildingName = "Jawbreaker Mortar";
-        buttonData.buildingDescription = "Shoots massive exploding balls";
-
-        buttonData.buildingType = this;
-
         projectileType = "JawBreaker";
 
         rawDamage = GameData.Instance.rawDamageAOE;

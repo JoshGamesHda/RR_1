@@ -10,9 +10,6 @@ public class DamageUp : SupportBuilding
 
         identifier = "DamageUp";
 
-        buttonData.buildingName = "Hard Candy";
-        buttonData.buildingDescription = "Your projectiles will hit even harder";
-
         effect = new EffectDamageUp();
 
         color = Color.red + Color.blue;
@@ -21,7 +18,5 @@ public class DamageUp : SupportBuilding
         AddBlock(new Block(-1, 0, this));
         AddBlock(new Block(0, 0, this));
         AddBlock(new Block(0, 1, this));
-
-        buttonData.buildingType = this;
     }
 }
