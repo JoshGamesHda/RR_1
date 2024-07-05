@@ -24,6 +24,11 @@ public class Preparation : IPhase
             timeElapsed = 0f;
         }
 
+        if(Input.GetKeyDown(Constants.KEY_PLACEMENT) && InputManager.Instance.hoverCell == null)
+        {
+            BuildingManager.Instance.UnselectBuilding();
+        }
+
         if (Input.GetKey(Constants.KEY_PLACEMENT) && initialHoverCell != null)
         {
             if (InputManager.Instance.hoverCell != null && InputManager.Instance.hoverCell.GetComponent<Cell>() == initialHoverCell && initialHoverCell != null && initialHoverCell.buildingOnCell != null)
@@ -45,7 +50,11 @@ public class Preparation : IPhase
         if (Input.GetKeyUp(Constants.KEY_PLACEMENT) && timeElapsed <= holdDownForPickUp)
         {
             timeElapsed = 0f;
-            if (initialHoverCell != null && initialHoverCell.buildingOnCell != null) initialHoverCell.buildingOnCell.UnShakeBuilding();
+            if (initialHoverCell != null && initialHoverCell.buildingOnCell != null)
+            {
+                initialHoverCell.buildingOnCell.UnShakeBuilding();
+            }
+            
             initialHoverCell = null;
         }
 

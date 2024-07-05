@@ -106,7 +106,7 @@ public class UIManager : MonoBehaviour
         waveNum.GetComponent<WaveNumUI>().SetWaveNum(newWaveNum);
     }
 
-    public void ShowStatsDisplay(Building building)
+    public void ShowStatDisplay(Building building)
     {
         statDisplay.GetComponent<StatDisplay>().UpdateStatDisplay(building);
         statDisplay.GetComponent<StatDisplay>().ShowStatDisplay();

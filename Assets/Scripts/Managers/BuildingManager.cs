@@ -31,6 +31,9 @@ public class BuildingManager : MonoBehaviour
     private List<GameObject> placedBuildings;
     // The click of one of the buttons should set activeBuilding to a Building
     public GameObject activeBuilding { get; set; }
+
+    // When clicking on a building in Preparation Phase
+    private GameObject selectedBuilding;
     #endregion
 
     private void OnEnable()
@@ -133,5 +136,14 @@ public class BuildingManager : MonoBehaviour
                 tower.ApplySupportEffects();
             }
         }
+    }
+
+    public void SelectBuilding(GameObject building)
+    {
+        UIManager.Instance.ShowStatDisplay(building.GetComponent<Building>());
+    }
+    public void UnselectBuilding()
+    {
+        UIManager.Instance.HideStatDisplay();
     }
 }

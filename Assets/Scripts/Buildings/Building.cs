@@ -74,6 +74,7 @@ public class Building : MonoBehaviour
 
 public class AttackTower : Building
 {
+    #region Fields
     protected float rawDamage, rawFireRate, rawRange;
     public float damage { get; set; }
     public float fireRate { get; set; }
@@ -89,6 +90,12 @@ public class AttackTower : Building
 
     private float nextTimeToFire = 0f;
 
+    // Range indication
+    int rangeIndicatorsAmount = 12;
+    List<GameObject> rangeIndicators;
+    private bool showingRangeIndication;
+    public bool showRangeIndication { private get; set; }
+    #endregion
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -103,6 +110,8 @@ public class AttackTower : Building
         color = Color.red;
         AddBlock(new Block(0, 0, this));
         shootOffset = shootPointTransform.position;
+
+        InitializeRangeIndication();
     }
 
     protected virtual void Update()
@@ -130,6 +139,17 @@ public class AttackTower : Building
 
         if(supportSpheres.Count != effects.Count)
             UpdateSpheres(effects.Count);
+
+        showingRangeIndication = false;
+        if (showRangeIndication)
+        {
+            showingRangeIndication = true;
+            showRangeIndication = false;
+        }
+
+        if (showingRangeIndication) ShowRangeIndication();
+        else HideRangeIndication();
+
     }
 
     protected void UpdateTarget()
@@ -206,7 +226,58 @@ public class AttackTower : Building
         if (checkCell != null && checkCell.GetComponent<Cell>().buildingOnCell != null && checkCell.GetComponent<Cell>().buildingOnCell.GetEffect() != null) effects.Add(checkCell.GetComponent<Cell>().buildingOnCell.GetEffect());
     }
 
-        private void UpdateSpheres(int effectCount)
+    private void InitializeRangeIndication()
+    {
+        rangeIndicators = new();
+
+        for (int i = 0; i < rangeIndicatorsAmount; i++)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
+            cube.GetComponent<Renderer>().material.color = Color.blue;
+
+            cube.transform.SetParent(transform, false);
+
+            cube.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+
+            cube.SetActive(false);
+
+            rangeIndicators.Add(cube);
+        }
+    }
+    public void UpdateRangeIndication()
+    {
+        float increment = (2 * Mathf.PI) / rangeIndicatorsAmount;
+
+        for (int i = 0; i < rangeIndicatorsAmount; i++)
+        {
+            rangeIndicators[i].transform.localPosition = new Vector3(Mathf.Sin(increment * i), 0, Mathf.Cos(increment * i)) * range;
+        }
+    }
+    private void ShowRangeIndication()
+    {
+        if (!rangeIndicators[0].activeSelf)
+        {
+            UpdateRangeIndication();
+            foreach (GameObject r in rangeIndicators)
+            {
+                r.transform.SetParent(transform, false);
+                r.SetActive(true);
+            }
+        }
+    }
+    public void HideRangeIndication()
+    {
+        if (rangeIndicators[0].activeSelf)
+        {
+            foreach (GameObject r in rangeIndicators)
+            {
+                r.SetActive(false);
+            }
+        }
+    }
+
+    private void UpdateSpheres(int effectCount)
     {
         foreach(GameObject sphere in supportSpheres)
         {
@@ -236,6 +307,7 @@ public class SupportBuilding : Building
     {
         base.OnEnable();
 
+        isSupport = true;
         buttonData.isAttackTower = false;
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
 {
+    #region Singleton
     private static PlacementManager instance;
     private PlacementManager() { }
     public static PlacementManager Instance
@@ -24,23 +25,24 @@ public class PlacementManager : MonoBehaviour
             return instance;
         }
     }
-
+    #endregion
     public bool inactive { get; set; }
 
-    int rangeIndicatorsAmount = 12;
-    List<GameObject> rangeIndicators;
+    private Building activeBuilding;
+
     private void OnEnable()
     {
         inactive = true;
-
-        InitializeRangeIndicators();
     }
     private void Update()
     {
         if (!inactive)
         {
-            ActivateRangeIndicators();
-            UpdateRangeIndicators();
+            if (!BuildingManager.Instance.activeBuilding.GetComponent<Building>().isSupport)
+            {
+                AttackTower tower = (AttackTower) BuildingManager.Instance.activeBuilding.GetComponent<Building>();
+                tower.showRangeIndication = true;
+            }
             if (InputManager.Instance.hoverCell != null)
             {
                 Building curBuilding = BuildingManager.Instance.activeBuilding.GetComponent<Building>();
@@ -52,18 +54,23 @@ public class PlacementManager : MonoBehaviour
                     AttackTower tower = (AttackTower) curBuilding;
                     tower.PeekEffects(hoverCell);
                     tower.ApplySupportEffects();
-                    UpdateRangeIndicators();
+                    tower.UpdateRangeIndication();
                 }
 
                 curBuilding.transform.position = Utility.Vec2IntToVec3(cellPos);
 
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetKeyDown(Constants.KEY_PLACEMENT))
                 {
                     if (BuildingManager.Instance.BuildingFits(curBuilding, hoverCell))
                     {
+                        InputManager.Instance.ignoreNextSelect = true;
                         BuildingManager.Instance.PlaceAt(curBuilding, hoverCell);
 
-                        DeactivateRangeIndicators();
+                        if (!BuildingManager.Instance.activeBuilding.GetComponent<Building>().isSupport)
+                        {
+                            AttackTower tower = (AttackTower)BuildingManager.Instance.activeBuilding.GetComponent<Building>();
+                            tower.HideRangeIndication();
+                        }
 
                         inactive = true;
                     }
@@ -79,63 +86,6 @@ public class PlacementManager : MonoBehaviour
             if(Input.GetKeyDown(Constants.KEY_ROTATE_BUILDING))
             {
                 BuildingManager.Instance.Rotate(BuildingManager.Instance.activeBuilding);
-            }
-        }
-    }
-
-    private void InitializeRangeIndicators()
-    {
-        rangeIndicators = new();
-
-        for (int i = 0; i < rangeIndicatorsAmount; i++)
-        { 
-            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-
-            cube.GetComponent<Renderer>().material.color = Color.blue;
-
-            cube.transform.SetParent(transform, false);
-
-            cube.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-
-            cube.SetActive(false);
-
-            rangeIndicators.Add(cube);
-        }
-    }
-
-    private void UpdateRangeIndicators()
-    {
-        if (BuildingManager.Instance.activeBuilding.HasComponent<AttackTower>())
-        {
-            float increment = (2 * Mathf.PI) / rangeIndicatorsAmount;
-
-            float range = BuildingManager.Instance.activeBuilding.GetComponent<AttackTower>().range;
-
-            for (int i = 0; i < rangeIndicatorsAmount; i++)
-            {
-                rangeIndicators[i].transform.localPosition = new Vector3(Mathf.Sin(increment * i), 0, Mathf.Cos(increment * i)) * range;
-            }
-        }
-    }
-
-    private void ActivateRangeIndicators()
-    {
-        if (!rangeIndicators[0].activeSelf)
-        {
-            foreach (GameObject r in rangeIndicators)
-            {
-                r.transform.SetParent(BuildingManager.Instance.activeBuilding.transform, false);
-                r.SetActive(true);
-            }
-        }
-    }
-    private void DeactivateRangeIndicators()
-    {
-        if (rangeIndicators[0].activeSelf)
-        {
-            foreach (GameObject r in rangeIndicators)
-            {
-                r.SetActive(false);
             }
         }
     }

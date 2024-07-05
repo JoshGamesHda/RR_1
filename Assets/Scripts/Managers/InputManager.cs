@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    #region Singleton
     private static InputManager instance;
     private InputManager() { }
     public static InputManager Instance
@@ -23,9 +24,11 @@ public class InputManager : MonoBehaviour
             return instance;
         }
     }
-
+    #endregion
     public GameObject hoverCell { get; set; }
     private Vector3 lastMousePos;
+
+    public bool ignoreNextSelect { private get; set; }
 
     void OnEnable()
     {
@@ -39,6 +42,23 @@ public class InputManager : MonoBehaviour
             hoverCell = HoveringOverCell();
 
             lastMousePos = Input.mousePosition;
+        }
+
+        if (hoverCell != null && hoverCell.GetComponent<Cell>().buildingOnCell != null && !hoverCell.GetComponent<Cell>().buildingOnCell.isSupport)
+        {
+            AttackTower a = (AttackTower)hoverCell.GetComponent<Cell>().buildingOnCell;
+            a.showRangeIndication = true;
+        }
+
+        if ( !ignoreNextSelect && hoverCell != null && hoverCell.GetComponent<Cell>().buildingOnCell != null &&  Input.GetKeyUp(Constants.KEY_PLACEMENT) && hoverCell.GetComponent<Cell>().buildingOnCell.placed)
+        {
+            BuildingManager.Instance.SelectBuilding(hoverCell.GetComponent<Cell>().buildingOnCell.gameObject);
+        }
+        if(ignoreNextSelect && Input.GetKeyUp(Constants.KEY_PLACEMENT)) ignoreNextSelect = false;
+
+        if (hoverCell == null && Input.GetKeyUp(Constants.KEY_PLACEMENT) || hoverCell != null && hoverCell.GetComponent<Cell>().buildingOnCell == null && Input.GetKeyUp(Constants.KEY_PLACEMENT))
+        {
+            BuildingManager.Instance.UnselectBuilding();
         }
     }
 
