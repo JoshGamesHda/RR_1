@@ -54,6 +54,7 @@ public class PlacementManager : MonoBehaviour
                     AttackTower tower = (AttackTower) curBuilding;
                     tower.PeekEffects(hoverCell);
                     tower.ApplySupportEffects();
+                    UIManager.Instance.ShowStatDisplay(tower);
                     tower.UpdateRangeIndication();
                 }
 
@@ -63,6 +64,7 @@ public class PlacementManager : MonoBehaviour
                 {
                     if (BuildingManager.Instance.BuildingFits(curBuilding, hoverCell))
                     {
+                        UIManager.Instance.HideStatDisplay();
                         InputManager.Instance.ignoreNextSelect = true;
                         BuildingManager.Instance.PlaceAt(curBuilding, hoverCell);
 

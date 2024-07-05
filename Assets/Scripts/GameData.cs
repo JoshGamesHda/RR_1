@@ -58,9 +58,9 @@ public class GameData : MonoBehaviour
 
     #region Support Stats
     [Header("Support Stats")]
-    public float SpeedUp_Multiplier;
-    public float DamageUp_Multiplier;
-    public float RangeUp_Multiplier;
+    public float speedUp_Multiplier;
+    public float damageUp_Multiplier;
+    public float rangeUp_Multiplier;
     #endregion
 
     #region Raw Tower Stats

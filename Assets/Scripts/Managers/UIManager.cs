@@ -43,8 +43,8 @@ public class UIManager : MonoBehaviour
     {
         HideButtons();
         HideDeleteBuildingButton();
+        HideStatDisplay();
         lastBuilding = null;
-        
     }
     public void ShowButtons()
     {

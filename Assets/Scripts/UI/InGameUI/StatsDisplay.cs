@@ -42,13 +42,13 @@ public class StatDisplay : MonoBehaviour
         string text;
         if (!b.isSupport)
         {
-            AttackTower a = b as AttackTower;
-            //text = "Damage: " + a.damage;
-               
+            AttackTower a = (AttackTower) b;
+            text = "Damage: " + a.damage.ToString() + "\nAttack Rate: " + a.fireRate.ToString() + "/s" + "\nRange: " + a.range.ToString();
+            buildingStats.text = text;
         }
         else if(b.isSupport) 
         {
-            SupportBuilding s = b as SupportBuilding;
+            SupportBuilding s = (SupportBuilding) b;
             //text = "Effect Strength: " + 
         }
     }

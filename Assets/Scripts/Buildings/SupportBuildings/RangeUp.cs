@@ -10,6 +10,8 @@ public class RangeUp : SupportBuilding
 
         identifier = "RangeUp";
 
+        effectStrength = GameData.Instance.rangeUp_Multiplier;
+
         effect = new EffectRangeUp();
 
         color = Color.red;

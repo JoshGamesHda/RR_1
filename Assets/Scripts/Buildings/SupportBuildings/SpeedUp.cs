@@ -10,6 +10,8 @@ public class SpeedUp : SupportBuilding
 
         identifier = "SpeedUp";
 
+        effectStrength = GameData.Instance.speedUp_Multiplier;
+
         effect = new EffectSpeedUp();
 
         color = Color.yellow;

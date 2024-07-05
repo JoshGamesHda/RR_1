@@ -10,6 +10,8 @@ public class DamageUp : SupportBuilding
 
         identifier = "DamageUp";
 
+        effectStrength = GameData.Instance.damageUp_Multiplier;
+
         effect = new EffectDamageUp();
 
         color = Color.red + Color.blue;

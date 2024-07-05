@@ -138,7 +138,7 @@ public class AttackTower : Building
         }
 
         if(supportSpheres.Count != effects.Count)
-            UpdateSpheres(effects.Count);
+            UpdateSupportSpheres(effects.Count);
 
         showingRangeIndication = false;
         if (showRangeIndication)
@@ -226,6 +226,7 @@ public class AttackTower : Building
         if (checkCell != null && checkCell.GetComponent<Cell>().buildingOnCell != null && checkCell.GetComponent<Cell>().buildingOnCell.GetEffect() != null) effects.Add(checkCell.GetComponent<Cell>().buildingOnCell.GetEffect());
     }
 
+    #region RangeIndication
     private void InitializeRangeIndication()
     {
         rangeIndicators = new();
@@ -276,8 +277,9 @@ public class AttackTower : Building
             }
         }
     }
+    #endregion
 
-    private void UpdateSpheres(int effectCount)
+    private void UpdateSupportSpheres(int effectCount)
     {
         foreach(GameObject sphere in supportSpheres)
         {
@@ -302,6 +304,7 @@ public class AttackTower : Building
 public class SupportBuilding : Building
 {
     protected ISupportEffect effect;
+    public float effectStrength { get; protected set; }
 
     protected override void OnEnable()
     {
