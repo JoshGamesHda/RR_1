@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class KingDurian : Enemy
 {
+    private void Awake()
+    {
+        healthMeter.InitializeBar(GameData.Instance.HPDurian);
+    }
     protected override void OnEnable()
     {
 
@@ -17,6 +21,8 @@ public class KingDurian : Enemy
         attackRate = GameData.Instance.AttackRateDurian;
         attackRange = GameData.Instance.AttackRangeDurian;
         moveSpeed = GameData.Instance.MoveSpeedDurian;
+
+        healthMeter.InitializeBar(maxHp);
     }
 
     protected override void FixedUpdate()

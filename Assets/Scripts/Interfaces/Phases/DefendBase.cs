@@ -12,6 +12,8 @@ public class DefendBase : IPhase
     }
     public void UpdateState()
     {
+        if (Input.GetKeyDown(Constants.KEY_PLACEMENT) && InputManager.Instance.hoverCell == null) UIManager.Instance.HideStatDisplay();
+
         if(!WaveManager.Instance.waveActive)
         {
             if (WaveManager.Instance.GetWaveSurvived())

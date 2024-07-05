@@ -7,6 +7,10 @@ public class Lemon : Enemy
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform shootPos;
 
+    private void Awake()
+    {
+        healthMeter.InitializeBar(GameData.Instance.HPLemon);
+    }
     protected override void OnEnable()
     {
         identifier = "Lemon";

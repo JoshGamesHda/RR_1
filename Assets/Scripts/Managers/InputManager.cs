@@ -56,9 +56,12 @@ public class InputManager : MonoBehaviour
         }
         if(ignoreNextSelect && Input.GetKeyUp(Constants.KEY_PLACEMENT)) ignoreNextSelect = false;
 
-        if (hoverCell == null && Input.GetKeyUp(Constants.KEY_PLACEMENT) || hoverCell != null && hoverCell.GetComponent<Cell>().buildingOnCell == null && Input.GetKeyUp(Constants.KEY_PLACEMENT))
+        if (BuildingManager.Instance.activeBuilding == null)
         {
-            BuildingManager.Instance.UnselectBuilding();
+            if (hoverCell == null && Input.GetKeyUp(Constants.KEY_PLACEMENT) || hoverCell != null && hoverCell.GetComponent<Cell>().buildingOnCell == null && Input.GetKeyUp(Constants.KEY_PLACEMENT))
+            {
+                BuildingManager.Instance.UnselectBuilding();
+            }
         }
     }
 

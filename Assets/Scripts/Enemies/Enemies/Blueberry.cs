@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Blueberry : Enemy
 {
+    private void Awake()
+    {
+        healthMeter.InitializeBar(GameData.Instance.HPBlueberry);
+    }
     protected override void OnEnable()
     {
         identifier = "Blueberry";
@@ -16,6 +20,8 @@ public class Blueberry : Enemy
         attackRate = GameData.Instance.AttackRateBlueberry;
         attackRange = GameData.Instance.AttackRangeBlueberry;
         moveSpeed = GameData.Instance.MoveSpeedBlueberry;
+
+        healthMeter.InitializeBar(maxHp);
     }
 
     protected override void FixedUpdate()

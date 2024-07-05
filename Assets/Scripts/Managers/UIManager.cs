@@ -33,9 +33,12 @@ public class UIManager : MonoBehaviour
 
     [Header("UI elements")]
     [SerializeField] private GameObject deleteBuilding;
-    [SerializeField] private GameObject mountainHealth;
     [SerializeField] private GameObject waveNum;
     [SerializeField] private GameObject statDisplay;
+
+    [Header("Mountain Health")]
+    [SerializeField] private TextMeshProUGUI mountainHealth;
+    [SerializeField] private ProgressBar healthBar;
 
     private GameObject lastBuilding;
 
@@ -44,6 +47,8 @@ public class UIManager : MonoBehaviour
         HideButtons();
         HideDeleteBuildingButton();
         HideStatDisplay();
+
+        healthBar.InitializeBar(GameData.Instance.initialMountainHP);
         lastBuilding = null;
     }
     public void ShowButtons()
@@ -99,7 +104,8 @@ public class UIManager : MonoBehaviour
 
     public void UpdateMountainHealthDisplay(int health)
     {
-        mountainHealth.GetComponent<MountainHealthUI>().SetMountainHealth(health);
+        healthBar.UpdateBar(health);
+        mountainHealth.text = health.ToString();
     }
     public void UpdateWaveNumDisplay(int newWaveNum)
     {

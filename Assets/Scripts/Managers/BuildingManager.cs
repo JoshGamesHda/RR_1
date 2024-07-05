@@ -122,6 +122,7 @@ public class BuildingManager : MonoBehaviour
     public void TrashActiveBuilding()
     {
         BuildingPool.Instance.ReturnBuilding(activeBuilding);
+        UIManager.Instance.HideStatDisplay();
         PlacementManager.Instance.inactive = true;
     }
 

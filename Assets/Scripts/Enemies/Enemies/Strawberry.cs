@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Strawberry : Enemy
 {
+    private void Awake()
+    {
+        healthMeter.InitializeBar(GameData.Instance.HPStrawberry);
+    }
     protected override void OnEnable()
     {
         identifier = "Strawberry";
@@ -16,6 +20,8 @@ public class Strawberry : Enemy
         attackRate = GameData.Instance.AttackRateStrawberry;
         attackRange = GameData.Instance.AttackRangeStrawberry;
         moveSpeed = GameData.Instance.MoveSpeedStrawberry;
+
+        healthMeter.ResetValue();
     }
     protected override void FixedUpdate()
     {

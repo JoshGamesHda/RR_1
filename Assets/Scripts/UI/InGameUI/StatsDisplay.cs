@@ -49,7 +49,8 @@ public class StatDisplay : MonoBehaviour
         else if(b.isSupport) 
         {
             SupportBuilding s = (SupportBuilding) b;
-            //text = "Effect Strength: " + 
+            text = "Effect Strength: " + (s.effectStrength * 100).ToString() + "%";
+            buildingStats.text = text;
         }
     }
 }

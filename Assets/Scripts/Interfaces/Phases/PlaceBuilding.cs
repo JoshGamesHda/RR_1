@@ -10,6 +10,7 @@ public class PlaceBuilding : IPhase
         {
             PlacementManager.Instance.inactive = false;
             UIManager.Instance.ShowDeleteBuildingButton();
+            UIManager.Instance.ShowStatDisplay(BuildingManager.Instance.activeBuilding.GetComponent<Building>());
         }
         
     }

@@ -28,13 +28,6 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
 
         nextTimeToAttack = 0f;
-
-        
-    }
-
-    private void Start()
-    {
-        healthMeter.InitializeBar(maxHp);
     }
 
     protected virtual void FixedUpdate()
@@ -98,11 +91,6 @@ public class Enemy : MonoBehaviour
 
             GameManager.Instance.mountain.GetComponent<Mountain>().DamageMountain(attackDamage);
         }
-    }
-
-    public void ResetHealthBar()
-    {
-        healthMeter.ResetValue();
     }
     
     protected virtual void Die()
