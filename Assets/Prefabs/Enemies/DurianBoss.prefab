@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMeter: {fileID: 5573268603888751040}
+  deathParticles: {fileID: 8246912862712723822, guid: ebf00e4240b71d04b8d516d664734c23,
+    type: 3}
 --- !u!54 &6107011920906603038
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -199,6 +201,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -817661342436042330, guid: 72582faf899db044381ae772bd76f7f5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bb1c7cdfcc048a4b8b19624cdfb9b3e, type: 2}
     - target: {fileID: 919132149155446097, guid: 72582faf899db044381ae772bd76f7f5,
         type: 3}
       propertyPath: m_Name
@@ -233,6 +240,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.26666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.76862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.29803923
       objectReference: {fileID: 0}
     - target: {fileID: 5911994258120398006, guid: 2f9feb957d53e55419ebe2368bd5d464,
         type: 3}

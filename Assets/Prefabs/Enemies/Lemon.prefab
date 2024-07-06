@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMeter: {fileID: 3110952233925888770}
+  deathParticles: {fileID: 4093448830598200018, guid: c43e8d2178b267f4ab006727b9c813d8,
+    type: 3}
   projectile: {fileID: 6323792030510352018, guid: db5495fc4e57a9c4da0c3ae34b19234f,
     type: 3}
   shootPos: {fileID: 4795042318747149508}
@@ -168,6 +170,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.26666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.76862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.29803923
       objectReference: {fileID: 0}
     - target: {fileID: 5911994258120398006, guid: 2f9feb957d53e55419ebe2368bd5d464,
         type: 3}

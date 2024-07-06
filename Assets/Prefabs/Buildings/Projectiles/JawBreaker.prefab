@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ebcf02aca167e4cbc8a7df84b989ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particles: {fileID: 1381828356470352355, guid: 31a0a31c26edcfd42a7d4b6a938e4736,
+    type: 3}
 --- !u!54 &-893939819553777721
 Rigidbody:
   m_ObjectHideFlags: 0

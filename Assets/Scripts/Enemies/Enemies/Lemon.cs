@@ -23,6 +23,8 @@ public class Lemon : Enemy
         attackRate = GameData.Instance.AttackRateLemon;
         attackRange = GameData.Instance.AttackRangeLemon;
         moveSpeed = GameData.Instance.MoveSpeedLemon;
+
+        healthMeter.ResetValue();
     }
 
     protected override void FixedUpdate()

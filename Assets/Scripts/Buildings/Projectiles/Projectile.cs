@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
 {
     public string identifier { get; protected set; }
 
+    [SerializeField] protected GameObject particles;
+
     protected float speed;
     protected float damage;
     protected Vector3 origin, target;
@@ -39,6 +41,11 @@ public class Projectile : MonoBehaviour
 
     protected void ReturnProjectile()
     {
+        GameObject particleSystem = Instantiate(particles);
+        particleSystem.transform.position = new Vector3(transform.position.x, -0.6f, transform.position.z);
+
+        Destroy(particleSystem, 1f);
+
         ProjectilePool.Instance.ReturnProjectile(gameObject);
     }
 }

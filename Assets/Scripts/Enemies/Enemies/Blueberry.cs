@@ -21,7 +21,7 @@ public class Blueberry : Enemy
         attackRange = GameData.Instance.AttackRangeBlueberry;
         moveSpeed = GameData.Instance.MoveSpeedBlueberry;
 
-        healthMeter.InitializeBar(maxHp);
+        healthMeter.ResetValue();
     }
 
     protected override void FixedUpdate()
@@ -31,7 +31,7 @@ public class Blueberry : Enemy
 
     protected override void Attack()
     {
-        base.Attack();
+        GameManager.Instance.mountain.GetComponent<Mountain>().DamageMountain(attackDamage);
         Die();
     }
 

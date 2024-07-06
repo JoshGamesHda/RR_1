@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Chocolate Mortar
   description: Hurl massive balls of hot chocolate at enemies
-  image: {fileID: 21300000, guid: 33b9abe1e1336964599e9f7697980a23, type: 3}
+  image: {fileID: 21300000, guid: 63880dfc81006e545808a2c5622dc3b1, type: 3}
   shape: {fileID: 21300000, guid: e57e8eab0a228bf479b869503381af79, type: 3}
   shootPointTransform: {fileID: 7695287866458439700}
 --- !u!1 &3210592340035627467

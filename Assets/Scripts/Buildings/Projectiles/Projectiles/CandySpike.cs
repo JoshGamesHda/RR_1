@@ -27,11 +27,6 @@ public class CandySpike : Projectile
 
             ReturnProjectile();
         }
-        if (other.CompareTag(Constants.TAG_GROUND))
-        {
-            Debug.Log("Hit Ground");
-            ReturnProjectile();
-        }
     }
 
 }

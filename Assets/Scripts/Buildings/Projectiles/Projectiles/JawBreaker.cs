@@ -25,18 +25,6 @@ public class JawBreaker : Projectile
     {
         if (!other.CompareTag(Constants.TAG_PROJECTILE) && !other.CompareTag(Constants.TAG_MOUNTAIN))
         { 
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            Destroy(sphere.GetComponent<SphereCollider>());
-
-            float scaleFactor = aoeRange;
-            sphere.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
-
-            sphere.transform.position = new Vector3 (transform.position.x, -1.5f, transform.position.z);
-            sphere.GetComponent<Renderer>().material.color = Color.red;
-
-            Destroy(sphere, 0.2f);
-
-
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, aoeRange);
 
             foreach (Collider collider in hitColliders)

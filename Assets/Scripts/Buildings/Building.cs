@@ -137,9 +137,6 @@ public class AttackTower : Building
             }
         }
 
-        if(supportSpheres.Count != effects.Count)
-            UpdateSupportSpheres(effects.Count);
-
         showingRangeIndication = false;
         if (showRangeIndication)
         {
@@ -149,7 +146,6 @@ public class AttackTower : Building
 
         if (showingRangeIndication) ShowRangeIndication();
         else HideRangeIndication();
-
     }
 
     protected void UpdateTarget()
@@ -278,27 +274,6 @@ public class AttackTower : Building
         }
     }
     #endregion
-
-    private void UpdateSupportSpheres(int effectCount)
-    {
-        foreach(GameObject sphere in supportSpheres)
-        {
-            Destroy(sphere);
-        }
-        supportSpheres.Clear();
-
-        for (int i = 0; i < effectCount; i++)
-        {
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.transform.position = Vector3.zero;
-            sphere.transform.parent = transform;
-            sphere.transform.localScale = sphere.transform.localScale / 2;
-            sphere.transform.localPosition = new Vector3(0, 4 + i, 0);
-            sphere.GetComponent<Renderer>().material.color = Color.red;
-            Destroy(sphere.GetComponent<SphereCollider>());
-            supportSpheres.Add(sphere);
-        }
-    }
 }
 
 public class SupportBuilding : Building

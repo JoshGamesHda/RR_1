@@ -22,7 +22,7 @@ public class KingDurian : Enemy
         attackRange = GameData.Instance.AttackRangeDurian;
         moveSpeed = GameData.Instance.MoveSpeedDurian;
 
-        healthMeter.InitializeBar(maxHp);
+        healthMeter.ResetValue();
     }
 
     protected override void FixedUpdate()

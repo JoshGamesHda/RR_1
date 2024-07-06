@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMeter: {fileID: 9074199006992193822}
+  deathParticles: {fileID: 4093448830598200018, guid: 15f0658b436d5f74bad63b03e227983d,
+    type: 3}
 --- !u!54 &2904099664191605673
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,6 +111,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.26666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.76862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088313361062745017, guid: 2f9feb957d53e55419ebe2368bd5d464,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.29803923
       objectReference: {fileID: 0}
     - target: {fileID: 5911994258120398006, guid: 2f9feb957d53e55419ebe2368bd5d464,
         type: 3}

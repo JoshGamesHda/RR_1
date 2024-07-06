@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     #region Fields
     [SerializeField] protected ProgressBar healthMeter;
 
+    [SerializeField] protected GameObject deathParticles;
+
     protected string identifier;
     protected float maxHp, hp, attackDamage, attackRate, attackRange, moveSpeed;
 
@@ -95,6 +97,12 @@ public class Enemy : MonoBehaviour
     
     protected virtual void Die()
     {
+        GameObject particles = Instantiate(deathParticles);
+
+        particles.transform.position = transform.position;
+
+        Destroy(particles, 1.25f);
+
         EnemyPool.Instance.ReturnEnemy(identifier, gameObject);
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6404939279450543666}
   - component: {fileID: 6798098300152059107}
   m_Layer: 0
-  m_Name: VFX_Strawberry_Death
+  m_Name: VFX_Blueberry_Death 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4093448830598200018}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -21.43, y: 0, z: 282.26047}
   m_LocalScale: {x: 0.64, y: 0.6400001, z: 0.6400001}
   m_ConstrainProportionsScale: 0
@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -56,7 +56,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.23
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -4854,7 +4854,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 015b3effbe8f5454781ff4178f0b30a3, type: 2}
+  - {fileID: 2100000, guid: 0c63992a59b2cde4b8a306bb822ee04e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

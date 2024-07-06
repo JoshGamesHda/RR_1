@@ -17,7 +17,7 @@ MonoBehaviour:
     - Strawberry
     - Strawberry
     - Strawberry
-    unlockAtWave: 0
+    unlockAtWave: 1
     lockAtWave: 3
   - enemies:
     - Strawberry
@@ -84,4 +84,17 @@ MonoBehaviour:
     - Lemon
     - Lemon
     unlockAtWave: 10
+    lockAtWave: 100
+  - enemies:
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    unlockAtWave: 0
     lockAtWave: 100

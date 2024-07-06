@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Hard Candy
   description: Your projectiles will hit even harder
-  image: {fileID: 21300000, guid: 1a949cec0f9c54b41b69849c57fd2519, type: 3}
+  image: {fileID: 21300000, guid: fbdc168e3a95e3f4a8bf5d577087c18c, type: 3}
   shape: {fileID: 21300000, guid: bcebd758f71bda04d8218739021cb5ec, type: 3}
 --- !u!1001 &6911313271599395043
 PrefabInstance:
