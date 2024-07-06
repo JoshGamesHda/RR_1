@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlateauManager : MonoBehaviour
 {
+    #region Singleton
     private static PlateauManager instance;
     private PlateauManager() { }
     public static PlateauManager Instance
@@ -23,6 +24,7 @@ public class PlateauManager : MonoBehaviour
             return instance;
         }
     }
+    #endregion
 
     [SerializeField]
     private PlateauStructure structure;

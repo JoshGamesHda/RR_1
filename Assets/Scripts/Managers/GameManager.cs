@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
+        mountain.GetComponent<Mountain>().invulnerable = false;
+        mountain.GetComponent<Mountain>().ResetHP();
+
         curPhase = new StartGame();
         curPhase.EnterState();
 
@@ -87,5 +90,10 @@ public class GameManager : MonoBehaviour
         }
         // double tap things you dont understand
         indicators.Clear();
+    }
+
+    public void ResetGame()
+    {
+        GameSceneManager.Instance.ReloadScene();
     }
 }

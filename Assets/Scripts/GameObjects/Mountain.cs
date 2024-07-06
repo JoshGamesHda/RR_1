@@ -6,6 +6,7 @@ using UnityEngine;
 public class Mountain : MonoBehaviour
 {
     private float hp;
+    public bool invulnerable { get; set; }
 
     void Start()
     {
@@ -15,8 +16,11 @@ public class Mountain : MonoBehaviour
 
     public void DamageMountain(float dmg)
     {
-        hp -= dmg;
-        UIManager.Instance.UpdateMountainHealthDisplay((int)hp);
+        if (!invulnerable)
+        {
+            hp -= dmg;
+            UIManager.Instance.UpdateMountainHealthDisplay((int)hp);
+        }
     }
 
     public bool IsAlive()
@@ -28,5 +32,10 @@ public class Mountain : MonoBehaviour
     {
         hp = GameData.Instance.initialMountainHP;
         UIManager.Instance.UpdateMountainHealthDisplay((int)hp);
+    }
+
+    public void KillMountain()
+    {
+        hp = 0;
     }
 }

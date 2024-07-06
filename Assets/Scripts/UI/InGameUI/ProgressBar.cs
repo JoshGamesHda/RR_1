@@ -25,8 +25,9 @@ public class ProgressBar : MonoBehaviour
     {
         value = newValue;
 
-        float ratio = value / originalValue;
+        float ratio = 0;
+        if(originalValue != 0) ratio = value / originalValue;
 
-        valueMeter.localScale = new Vector3(ratio * originalScale.x, originalScale.y, originalScale.z);
+        if(ratio != 0) valueMeter.localScale = new Vector3(ratio * originalScale.x, originalScale.y, originalScale.z);
     }
 }

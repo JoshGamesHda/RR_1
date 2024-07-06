@@ -6,23 +6,15 @@ public class DefeatScreen : IPhase
 {
     public void EnterState()
     {
-        Debug.Log("The Candy Kingdom is forever doomed, you did this");
-        Debug.Log("Press Space to start over");
+        UIManager.Instance.ShowDefeatScreen();
+        GameManager.Instance.mountain.GetComponent<Mountain>().invulnerable = true;
     }
     public void UpdateState()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ExitState();
-            GameManager.Instance.TransitionToPhase(new StartGame());
-        }
-
     }
     public void ExitState()
     {
-        WaveManager.Instance.KillAllEnemies();
-        GameManager.Instance.mountain.GetComponent<Mountain>().ResetHP();
         Debug.Log("Starting New Game");
     }
 }

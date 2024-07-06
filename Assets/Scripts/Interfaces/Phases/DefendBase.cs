@@ -30,6 +30,8 @@ public class DefendBase : IPhase
                 GameManager.Instance.TransitionToPhase(new DefeatScreen());
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.L)) GameManager.Instance.mountain.GetComponent<Mountain>().KillMountain();
     }
     public void ExitState()
     {

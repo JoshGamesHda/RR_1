@@ -120,6 +120,11 @@ public class GameData : MonoBehaviour
     public float MoveSpeedDurian;
     #endregion
 
+    public void InitializeData()
+    {
+        clustersPerWave = 1;
+    }
+
     public void UpdateOnceAfterEachWave()
     {
         if (GameManager.Instance.waveNum < 16)

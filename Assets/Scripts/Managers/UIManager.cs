@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    #region Fields
     // Just leave this public, for whatever reason adding {get; set; } messes up the SerializeField
     public List<GameObject> buttons;
 
@@ -40,13 +41,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI mountainHealth;
     [SerializeField] private ProgressBar healthBar;
 
+    [Header("Defeat Screen")]
+    [SerializeField] private GameObject defeatScreen;
+
     private GameObject lastBuilding;
+    #endregion
 
     void OnEnable()
     {
         HideButtons();
         HideDeleteBuildingButton();
         HideStatDisplay();
+        HideDefeatScreen();
 
         healthBar.InitializeBar(GameData.Instance.initialMountainHP);
         lastBuilding = null;
@@ -120,5 +126,14 @@ public class UIManager : MonoBehaviour
     public void HideStatDisplay()
     {
         statDisplay.GetComponent<StatDisplay>().HideStatDisplay();
+    }
+
+    public void ShowDefeatScreen()
+    {
+        defeatScreen.SetActive(true);
+    }
+    public void HideDefeatScreen()
+    {
+        defeatScreen.SetActive(false);
     }
 }
