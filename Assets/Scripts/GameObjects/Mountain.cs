@@ -36,6 +36,7 @@ public class Mountain : MonoBehaviour
 
     public void KillMountain()
     {
+        GameManager.Instance.mountain.GetComponent<Mountain>().invulnerable = true;
         hp = 0;
     }
 }
