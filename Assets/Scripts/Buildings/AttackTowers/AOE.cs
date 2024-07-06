@@ -21,6 +21,13 @@ public class AOE : AttackTower
         range = rawRange;
     }
 
+    protected override void ShootProjectile()
+    {
+        SoundManager.Instance.PlayShotAoe();
+
+        base.ShootProjectile();
+    }
+
     protected override void Update()
     {
         base.Update();

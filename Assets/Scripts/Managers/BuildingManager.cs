@@ -96,6 +96,7 @@ public class BuildingManager : MonoBehaviour
                 placedBuildings.RemoveAt(i);
 
                 PlacementManager.Instance.inactive = false;
+
                 return;
             }
             else Debug.Log("Building not found");

@@ -21,6 +21,13 @@ public class FireRate : AttackTower
         range = rawRange;
     }
 
+    protected override void ShootProjectile()
+    {
+        SoundManager.Instance.PlayShotFireRate();
+
+        base.ShootProjectile();
+    }
+
     protected override void Update()
     {
         base.Update();

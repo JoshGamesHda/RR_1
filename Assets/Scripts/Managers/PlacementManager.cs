@@ -60,12 +60,16 @@ public class PlacementManager : MonoBehaviour
 
                 curBuilding.transform.position = Utility.Vec2IntToVec3(cellPos);
 
+                // Actually place the building
                 if (Input.GetKeyDown(Constants.KEY_PLACEMENT))
                 {
                     if (BuildingManager.Instance.BuildingFits(curBuilding, hoverCell))
                     {
                         UIManager.Instance.HideStatDisplay();
                         InputManager.Instance.ignoreNextSelect = true;
+
+                        SoundManager.Instance.PlayPlaceBuilding();
+
                         BuildingManager.Instance.PlaceAt(curBuilding, hoverCell);
 
                         if (!BuildingManager.Instance.activeBuilding.GetComponent<Building>().isSupport)
@@ -79,14 +83,18 @@ public class PlacementManager : MonoBehaviour
                     else Debug.Log("Building don fit here");
                 }
             }
+            // Find intersection point with XZ
             else
             {
                 Vector3 intersectionPoint = Utility.IntersectionPointRayWithXZPlane(CameraManager.Instance.GetCam().ScreenPointToRay(Input.mousePosition));
 
                 BuildingManager.Instance.activeBuilding.GetComponent<Building>().transform.position = new Vector3(intersectionPoint.x, 0, intersectionPoint.z);
             }
+
+            // Rotate Building
             if(Input.GetKeyDown(Constants.KEY_ROTATE_BUILDING))
             {
+                SoundManager.Instance.PlayRotateBuilding();
                 BuildingManager.Instance.Rotate(BuildingManager.Instance.activeBuilding);
             }
         }

@@ -18,17 +18,21 @@ public class Preparation : IPhase
 
     public void UpdateState()
     {
+        // Initial Building Click
         if (Input.GetKeyDown(Constants.KEY_PLACEMENT) && InputManager.Instance.hoverCell != null && InputManager.Instance.hoverCell.GetComponent<Cell>().buildingOnCell != null)
         {
             initialHoverCell = InputManager.Instance.hoverCell.GetComponent<Cell>();
             timeElapsed = 0f;
+            SoundManager.Instance.PlayPickUpRumble();
         }
 
+        // Unselecting
         if(Input.GetKeyDown(Constants.KEY_PLACEMENT) && InputManager.Instance.hoverCell == null)
         {
             BuildingManager.Instance.UnselectBuilding();
         }
 
+        // Picking Up
         if (Input.GetKey(Constants.KEY_PLACEMENT) && initialHoverCell != null)
         {
             if (InputManager.Instance.hoverCell != null && InputManager.Instance.hoverCell.GetComponent<Cell>() == initialHoverCell && initialHoverCell != null && initialHoverCell.buildingOnCell != null)
@@ -41,6 +45,7 @@ public class Preparation : IPhase
                     {
                         initialHoverCell.buildingOnCell.UnShakeBuilding();
                         BuildingManager.Instance.PickUpFrom(initialHoverCell);
+                        SoundManager.Instance.PlayPickUp();
                         ExitState();
                         GameManager.Instance.TransitionToPhase(new PlaceBuilding());
                     }
@@ -58,6 +63,7 @@ public class Preparation : IPhase
             initialHoverCell = null;
         }
 
+        // Start next Wave
         if (Input.GetKeyDown(Constants.KEY_BEGIN_WAVE))
         {
             ExitState();

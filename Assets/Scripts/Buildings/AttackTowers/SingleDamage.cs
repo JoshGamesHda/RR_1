@@ -21,6 +21,13 @@ public class SingleDamage : AttackTower
         range = rawRange;
     }
 
+    protected override void ShootProjectile()
+    {
+        SoundManager.Instance.PlayShotBallista();
+
+        base.ShootProjectile();
+    }
+
     protected override void Update()
     {
         base.Update();

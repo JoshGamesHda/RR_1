@@ -167,7 +167,7 @@ public class AttackTower : Building
             target = closestEnemy;
         }
     }
-    protected void ShootProjectile()
+    protected virtual void ShootProjectile()
     {
         GameObject projectile = ProjectilePool.Instance.GetProjectile(projectileType);
 

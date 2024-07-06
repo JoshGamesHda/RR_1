@@ -16,24 +16,22 @@ MonoBehaviour:
   - enemies:
     - Strawberry
     - Strawberry
+    unlockAtWave: 0
+    lockAtWave: 3
+  - enemies:
+    - Lemon
+    - Strawberry
     - Strawberry
     unlockAtWave: 1
     lockAtWave: 3
   - enemies:
     - Strawberry
     - Strawberry
-    unlockAtWave: 1
-    lockAtWave: 3
-  - enemies:
-    - Strawberry
-    - Strawberry
-    - Strawberry
     - Lemon
     - Lemon
-    unlockAtWave: 2
+    unlockAtWave: 3
     lockAtWave: 5
   - enemies:
-    - Strawberry
     - Strawberry
     - Strawberry
     - Strawberry
@@ -48,15 +46,35 @@ MonoBehaviour:
     - Strawberry
     - Strawberry
     unlockAtWave: 3
-    lockAtWave: 10
+    lockAtWave: 9
   - enemies:
     - Strawberry
     - Strawberry
     - Strawberry
     - Lemon
     - Lemon
-    - Lemon
+    - Blueberry
     unlockAtWave: 5
+    lockAtWave: 9
+  - enemies:
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    unlockAtWave: 5
+    lockAtWave: 9
+  - enemies:
+    - KingDurian
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Lemon
+    - Lemon
+    - Lemon
+    - Lemon
+    unlockAtWave: 9
     lockAtWave: 10
   - enemies:
     - Strawberry
@@ -86,6 +104,48 @@ MonoBehaviour:
     unlockAtWave: 10
     lockAtWave: 100
   - enemies:
+    - Lemon
+    - Lemon
+    - Lemon
+    - Lemon
+    - Blueberry
+    - Blueberry
+    unlockAtWave: 10
+    lockAtWave: 100
+  - enemies:
+    - KingDurian
+    - Strawberry
+    - Strawberry
+    unlockAtWave: 14
+    lockAtWave: 100
+  - enemies:
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    unlockAtWave: 19
+    lockAtWave: 16
+  - enemies:
+    - KingDurian
+    - KingDurian
+    unlockAtWave: 24
+    lockAtWave: 100
+  - enemies:
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    unlockAtWave: 29
+    lockAtWave: 100
+  - enemies:
+    - Durian
+    - Durian
+    - Durian
+    - Durian
+    - Durian
+    unlockAtWave: 34
+    lockAtWave: 100
+  - enemies:
     - Blueberry
     - Blueberry
     - Blueberry
@@ -96,5 +156,5 @@ MonoBehaviour:
     - Blueberry
     - Blueberry
     - Blueberry
-    unlockAtWave: 0
+    unlockAtWave: 39
     lockAtWave: 100

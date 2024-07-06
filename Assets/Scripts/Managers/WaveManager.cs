@@ -64,8 +64,12 @@ public class WaveManager : MonoBehaviour
                     clustersSent++;
                     continue;
                 }
+
+                // Spawn in enemies
                 if (Time.time >= enemiesToSpawn[i].lastSpawnTime + enemiesToSpawn[i].frequency)
                 {
+                    SoundManager.Instance.PlayEnemySpawn();
+
                     GameObject enemy = EnemyPool.Instance.GetEnemy(enemiesToSpawn[i].enemyTypes.Dequeue());
                     Vector2 pos = enemiesToSpawn[i].pos.Dequeue();
                     enemy.transform.position = new Vector3(pos.x, 0, pos.y);

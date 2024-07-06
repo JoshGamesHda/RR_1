@@ -103,6 +103,8 @@ public class Enemy : MonoBehaviour
 
         Destroy(particles, 1.25f);
 
+        SoundManager.Instance.PlayEnemyDeath();
+
         EnemyPool.Instance.ReturnEnemy(identifier, gameObject);
     }
 }

@@ -101,6 +101,8 @@ public class UIManager : MonoBehaviour
     }
     public void OnDeleteBuilding()
     {
+        SoundManager.Instance.PlayTrashCan();
+
         BuildingManager.Instance.TrashActiveBuilding();
     }
     public void HideDeleteBuildingButton()

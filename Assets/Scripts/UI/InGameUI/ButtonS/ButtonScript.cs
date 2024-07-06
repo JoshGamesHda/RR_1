@@ -39,6 +39,8 @@ public class ButtonScript : MonoBehaviour
 
     private void OnButtonClick()
     {
+        SoundManager.Instance.PlayButtonClick();
+
         BuildingManager.Instance.SetActiveBuilding(BuildingPool.Instance.GetBuilding(assignedBuilding.GetComponent<Building>().identifier));
 
         assignedBuilding = null;
