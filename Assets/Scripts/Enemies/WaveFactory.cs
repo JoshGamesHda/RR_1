@@ -5,20 +5,6 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 
-[System.Serializable]
-public struct Cluster
-{
-    public List<string> enemies;
-    public int unlockAtWave;
-    public int lockAtWave;
-}
-
-[CreateAssetMenu(fileName = "New ClusterCollection", menuName = "ClusterCollection")]
-public class ClusterCollection : ScriptableObject
-{
-    public List<Cluster> clusters;
-}
-
 public struct SpawningArea
 {
     private float rotationFromPlateau;
