@@ -23,11 +23,7 @@ public class SelectBuilding : IPhase
 
         for (int i = 0; i < areas.Count; i++)
         {
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.transform.position = areas[i].pos + (GameManager.Instance.mountain.transform.position - areas[i].pos)/2;
-            sphere.GetComponent<Renderer>().material.color = Color.red;
-
-            GameManager.Instance.indicators.Add(sphere);
+            GameManager.Instance.CreateIndicator(areas[i].pos + (GameManager.Instance.mountain.transform.position - areas[i].pos) / 2);
         }
     }
     public void UpdateState()

@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     public GameObject mountain;
 
     // Very temporary:
+    [SerializeField] private GameObject indicator;
+    private const float weewoo = 0.2f;
     public List<GameObject> indicators { get; set; }
 
     void OnEnable()
@@ -71,6 +73,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         curPhase.UpdateState();
+
+        if(indicators.Count > 0)
+        {
+            foreach(GameObject indicator in indicators)
+            {
+                Transform modelTransform = indicator.transform.GetChild(0);
+
+                modelTransform.localPosition = new Vector3 (modelTransform.localPosition.x, weewoo * Mathf.Sin(Time.time * 2f) , modelTransform.localPosition.z);
+            }
+        }
     }
 
     public void TransitionToPhase(IPhase nextPhase)
@@ -81,6 +93,15 @@ public class GameManager : MonoBehaviour
     public void CreateWave()
     {
         curWave = waveFactory.CreateWave(waveNum);
+    }
+
+    public void CreateIndicator(Vector3 pos)
+    {
+        GameObject arrow = Instantiate(indicator);
+        arrow.transform.position = pos;
+        arrow.transform.LookAt(mountain.transform.position);
+
+        indicators.Add(arrow);
     }
     public void ClearIndicators()
     {
@@ -96,4 +117,6 @@ public class GameManager : MonoBehaviour
     {
         GameSceneManager.Instance.ReloadScene();
     }
+
+    
 }
