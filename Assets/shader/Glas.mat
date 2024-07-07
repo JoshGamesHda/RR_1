@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7902446203780987331
+--- !u!114 &-4376349735546187880
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Outline 1
-  m_Shader: {fileID: -6465566751694194690, guid: 82f3ab0898e08fe4d859af79f59d4243,
+  m_Name: Glas
+  m_Shader: {fileID: -6465566751694194690, guid: 14dcdf453147e04408d3c854db52b325,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -51,9 +51,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Outline_Thiccness: 0.07
+    - _AdditionalPower: 7.62
+    - _FresnelPower: 1.52
+    - _Metallic: 7.62
+    - _NoiseScale: 20
+    - _PushOut: 7.62
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ScroleSpeed: 0.05
+    - _Smoothness: 7.62
     m_Colors:
-    - _Outline_Color: {r: 0.9056604, g: 0.33036664, b: 0.4246276, a: 0.078431375}
+    - _PrimaryColor: {r: 1, g: 1, b: 1, a: 0}
+    - _SecondaryColor: {r: 0.95283014, g: 0.4824077, b: 0.4824077, a: 0}
   m_BuildTextureStacks: []
