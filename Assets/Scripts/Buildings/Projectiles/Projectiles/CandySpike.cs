@@ -25,7 +25,7 @@ public class CandySpike : Projectile
         {
             other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
 
-            ReturnProjectile();
+            ReturnProjectile(-0.6f);
         }
     }
 

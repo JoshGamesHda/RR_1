@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class DefendBase : IPhase
 {
+    private float waitTime;
     public void EnterState()
     {
         GameManager.Instance.curWave.SendWave();
 
         GameManager.Instance.ClearIndicators();
+
+        waitTime = 2f;
     }
     public void UpdateState()
     {
@@ -18,11 +21,15 @@ public class DefendBase : IPhase
         {
             if (WaveManager.Instance.GetWaveSurvived())
             {
+                waitTime -= Time.deltaTime;
+                if (waitTime < 0)
+                { 
                 ExitState();
                 GameManager.Instance.waveNum++;
                 UIManager.Instance.UpdateWaveNumDisplay(GameManager.Instance.waveNum);
                 GameData.Instance.UpdateOnceAfterEachWave();
                 GameManager.Instance.TransitionToPhase(new SelectBuilding());
+                }
             }
             else
             {

@@ -144,8 +144,6 @@ public class BuildingPool : MonoBehaviour
         int rand;
         rand = UnityEngine.Random.Range(0, availableBuildings.Count);
 
-        Debug.Log("rand: " + rand);
-
         if(lastBuildings.Count < 3) lastBuildings.Enqueue(availableBuildings[rand]);
         else
         {

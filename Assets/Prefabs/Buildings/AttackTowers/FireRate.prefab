@@ -51,6 +51,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: adaff7a7bc3e04d4fb078874429c9af6, type: 3}
   shape: {fileID: 21300000, guid: c69800e20bbf19844917c0da03a6cd22, type: 3}
   shootPointTransform: {fileID: 7695287866458439700}
+  rangeIndicator: {fileID: 552502067944192157, guid: 140d6d40942c24f4ea549c265d651062,
+    type: 3}
 --- !u!1 &769482379174317600
 GameObject:
   m_ObjectHideFlags: 0

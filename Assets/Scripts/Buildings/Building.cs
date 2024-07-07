@@ -92,6 +92,7 @@ public class AttackTower : Building
 
     // Range indication
     int rangeIndicatorsAmount = 12;
+    [SerializeField] private GameObject rangeIndicator;
     List<GameObject> rangeIndicators;
     private bool showingRangeIndication;
     public bool showRangeIndication { private get; set; }
@@ -229,13 +230,9 @@ public class AttackTower : Building
 
         for (int i = 0; i < rangeIndicatorsAmount; i++)
         {
-            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-
-            cube.GetComponent<Renderer>().material.color = Color.blue;
+            GameObject cube = Instantiate(rangeIndicator);
 
             cube.transform.SetParent(transform, false);
-
-            cube.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 
             cube.SetActive(false);
 
@@ -249,6 +246,7 @@ public class AttackTower : Building
         for (int i = 0; i < rangeIndicatorsAmount; i++)
         {
             rangeIndicators[i].transform.localPosition = new Vector3(Mathf.Sin(increment * i), 0, Mathf.Cos(increment * i)) * range;
+            rangeIndicators[i].transform.LookAt(transform.position);
         }
     }
     private void ShowRangeIndication()

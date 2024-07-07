@@ -35,7 +35,8 @@ public class JawBreaker : Projectile
                 }
             }
 
-            ReturnProjectile();
+            SoundManager.Instance.PlayEnemyDeath();
+            ReturnProjectile(-1.3f);
         }
     }
 }

@@ -35,14 +35,14 @@ public class Projectile : MonoBehaviour
         if(remainingLifeTime < 0)
         {
             Debug.Log("Time ran out");
-            ReturnProjectile();
+            ReturnProjectile(0);
         }
     }
 
-    protected void ReturnProjectile()
+    protected void ReturnProjectile(float particleY)
     {
         GameObject particleSystem = Instantiate(particles);
-        particleSystem.transform.position = new Vector3(transform.position.x, -0.6f, transform.position.z);
+        particleSystem.transform.position = new Vector3(transform.position.x, particleY, transform.position.z);
 
         Destroy(particleSystem, 1f);
 
