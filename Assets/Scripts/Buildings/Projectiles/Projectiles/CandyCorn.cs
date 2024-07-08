@@ -25,8 +25,7 @@ public class CandyCorn : Projectile
         {
             other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
 
-            ReturnProjectile(0.6f);
+            ReturnProjectile(-0.6f);
         }
-        if (other.CompareTag(Constants.TAG_GROUND)) ReturnProjectile(-0.6f);
     }
 }
