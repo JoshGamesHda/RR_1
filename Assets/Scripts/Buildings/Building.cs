@@ -84,7 +84,7 @@ public class AttackTower : Building
     protected List<ISupportEffect> effects;
     protected GameObject target;
     [SerializeField] private Transform shootPointTransform;
-    private Vector3 shootOffset;
+    protected Vector3 shootOffset;
 
     private List<GameObject> supportSpheres;
 

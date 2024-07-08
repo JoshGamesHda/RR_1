@@ -25,7 +25,13 @@ public class AOE : AttackTower
     {
         SoundManager.Instance.PlayShotAoe();
 
-        base.ShootProjectile();
+        GameObject projectile = ProjectilePool.Instance.GetProjectile(projectileType);
+
+        if (projectile != null)
+        {
+            Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y - 1f, target.transform.position.z);
+            projectile.GetComponent<Projectile>().SetValues(transform.position + shootOffset, targetPosition, damage);
+        }
     }
 
     protected override void Update()
