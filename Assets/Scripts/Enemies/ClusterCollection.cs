@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct Cluster
 {
+    public bool bossCluster;
     public List<string> enemies;
     public int unlockAtWave;
     public int lockAtWave;

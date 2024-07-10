@@ -18,7 +18,6 @@ public class KingDurian : Enemy
         maxHp = GameData.Instance.HPDurian;
         hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageDurian;
-        attackRate = GameData.Instance.AttackRateDurian;
         attackRange = GameData.Instance.AttackRangeDurian;
         moveSpeed = GameData.Instance.MoveSpeedDurian;
 
@@ -32,7 +31,6 @@ public class KingDurian : Enemy
 
     protected override void Attack()
     {
-        animator.SetTrigger("Attack");
         base.Attack();
     }
 

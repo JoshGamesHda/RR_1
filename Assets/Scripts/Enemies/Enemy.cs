@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject deathParticles;
 
     protected string identifier;
-    protected float maxHp, hp, attackDamage, attackRate, attackRange, moveSpeed;
+    protected float maxHp, hp, attackDamage, attackRange, moveSpeed;
 
     private GameObject destination;
     private Rigidbody rb;
@@ -71,26 +71,10 @@ public class Enemy : MonoBehaviour
             Vector3 moveDirection = (destination.transform.position - transform.position).normalized * moveSpeed;
             rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
         }
-
-        // If close enough, attack
-        else 
-        {
-            Attack();
-        }
     }
     protected virtual void Attack()
     {
-        if (!attacking)
-        {
-            nextTimeToAttack = Time.time + 1f / attackRate;
-            attacking = true;
-        }
-        if (Time.time >= nextTimeToAttack && attacking)
-        {
-            nextTimeToAttack = Time.time + 1f / attackRate;
-
-            GameManager.Instance.mountain.GetComponent<Mountain>().DamageMountain(attackDamage);
-        }
+        GameManager.Instance.mountain.GetComponent<Mountain>().DamageMountain(attackDamage);
     }
     
     protected virtual void Die()

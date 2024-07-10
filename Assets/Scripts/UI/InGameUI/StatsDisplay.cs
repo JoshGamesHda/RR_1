@@ -43,7 +43,7 @@ public class StatDisplay : MonoBehaviour
         if (!b.isSupport)
         {
             AttackTower a = (AttackTower) b;
-            text = "Damage: " + a.damage.ToString() + "\nAttack Rate: " + a.fireRate.ToString() + "/s" + "\nRange: " + a.range.ToString();
+            text = "Damage: " + Utility.RoundTo2Decimals(a.damage).ToString() + "\nAttack Rate: " + Utility.RoundTo2Decimals(a.fireRate).ToString() + "/s" + "\nRange: " + Utility.RoundTo2Decimals(a.range).ToString();
             buildingStats.text = text;
         }
         else if(b.isSupport) 

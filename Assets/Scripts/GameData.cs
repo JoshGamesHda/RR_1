@@ -93,14 +93,12 @@ public class GameData : MonoBehaviour
     [Header("Strawberry")]
     public float HPStrawberry;
     public float AttackDamageStrawberry;
-    public float AttackRateStrawberry;
     public float AttackRangeStrawberry;
     public float MoveSpeedStrawberry;
 
     [Header("Lemon")]
     public float HPLemon;
     public float AttackDamageLemon;
-    public float AttackRateLemon;
     public float AttackRangeLemon;
     public float MoveSpeedLemon;
     public float ProjSpeedLemon;
@@ -108,14 +106,12 @@ public class GameData : MonoBehaviour
     [Header("Blueberry")]
     public float HPBlueberry;
     public float AttackDamageBlueberry;
-    public float AttackRateBlueberry;
     public float AttackRangeBlueberry;
     public float MoveSpeedBlueberry;
 
     [Header("KingDurian")]
     public float HPDurian;
     public float AttackDamageDurian;
-    public float AttackRateDurian;
     public float AttackRangeDurian;
     public float MoveSpeedDurian;
     #endregion

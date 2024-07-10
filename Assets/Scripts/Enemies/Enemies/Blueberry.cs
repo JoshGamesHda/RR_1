@@ -17,7 +17,6 @@ public class Blueberry : Enemy
         maxHp = GameData.Instance.HPBlueberry;
         hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageBlueberry;
-        attackRate = GameData.Instance.AttackRateBlueberry;
         attackRange = GameData.Instance.AttackRangeBlueberry;
         moveSpeed = GameData.Instance.MoveSpeedBlueberry;
 
@@ -27,6 +26,15 @@ public class Blueberry : Enemy
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
+        foreach (Collider collider in hitColliders)
+        {
+            if (collider.CompareTag(Constants.TAG_MOUNTAIN))
+            {
+                Attack();
+            }
+        }
     }
 
     protected override void Attack()

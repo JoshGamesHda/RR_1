@@ -47,4 +47,10 @@ public static class Utility
 
         return new Vector2(pos.x + Mathf.Cos(randAngle) * randRadius, pos.y + Mathf.Sin(randAngle) * randRadius);
     }
+
+    public static float RoundTo2Decimals(float value)
+    {
+        float t = value * 100;
+        return Mathf.Round(t)/100;
+    }
 }

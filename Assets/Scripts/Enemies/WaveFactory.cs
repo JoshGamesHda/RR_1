@@ -5,6 +5,20 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 
+public class WaveFactory : MonoBehaviour
+{
+    [SerializeField] ClusterCollection clusterCollection;
+
+    public Wave CreateWave(int waveNum)
+    {
+        List<float> rotations = new();
+        for (int i = 0; i < GameData.Instance.areasPerWave; i++)
+            rotations.Add(Random.Range(0f, 2 * Mathf.PI));
+
+        return Wave.Create(rotations, waveNum, clusterCollection);
+    }
+}
+
 public struct SpawningArea
 {
     private float rotationFromPlateau;
@@ -28,20 +42,6 @@ public struct SpawningArea
     public void QueueSelf()
     {
         WaveManager.Instance.QueueArea(this);
-    }
-}
-
-public class WaveFactory : MonoBehaviour
-{
-    [SerializeField] ClusterCollection clusterCollection;
-
-    public Wave CreateWave(int waveNum)
-    {
-        List<float> rotations = new();
-        for (int i = 0; i < GameData.Instance.areasPerWave; i++)
-            rotations.Add(Random.Range(0f, 2 * Mathf.PI));
-
-        return Wave.Create(rotations, waveNum, clusterCollection);
     }
 }
 
@@ -78,15 +78,29 @@ public class Wave
     {
         // Extract a list of valid clusters for the current Wave number
         List<Cluster> possibleClusters = new();
+        Cluster bossCluster = new Cluster();
+        bool bossClusterFound = false;
         for (int i = 0; i < clusterCollection.clusters.Count; i++)
         {
-            if (clusterCollection.clusters[i].unlockAtWave <= waveNum && clusterCollection.clusters[i].lockAtWave > waveNum) possibleClusters.Add(clusterCollection.clusters[i]);
+            if (clusterCollection.clusters[i].unlockAtWave <= waveNum && clusterCollection.clusters[i].lockAtWave > waveNum && !clusterCollection.clusters[i].bossCluster) 
+                possibleClusters.Add(clusterCollection.clusters[i]);
+            if (clusterCollection.clusters[i].bossCluster)
+            {
+                bossCluster = clusterCollection.clusters[i];
+                bossClusterFound = true;
+            }
         }
 
         for (int i = 0; i < GameData.Instance.clustersPerWave; i++)
         {
             // Takes out one random cluster from the cluster list
             Cluster cluster = possibleClusters[Random.Range(0, possibleClusters.Count)];
+
+            if (bossClusterFound && i == 0)
+            {
+                areas[Random.Range(0, areas.Count)].clusters.Add(bossCluster);
+                continue;
+            }
 
             // Making sure each area gets at least one cluster, then the rest will be randomly distributed over the areas
             if (i < areas.Count) areas[i].clusters.Add(cluster);

@@ -20,7 +20,6 @@ public class Lemon : Enemy
         maxHp = GameData.Instance.HPLemon;
         hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageLemon;
-        attackRate = GameData.Instance.AttackRateLemon;
         attackRange = GameData.Instance.AttackRangeLemon;
         moveSpeed = GameData.Instance.MoveSpeedLemon;
 
@@ -34,17 +33,7 @@ public class Lemon : Enemy
 
     protected override void Attack()
     {
-        if (!attacking)
-        {
-            nextTimeToAttack = Time.time + 1f / attackRate;
-            attacking = true;
-        }
-        if (Time.time >= nextTimeToAttack && attacking)
-        {
-            nextTimeToAttack = Time.time + 1f / attackRate;
-
-            ShootProjectile();
-        }
+        ShootProjectile();
     }
 
     private void ShootProjectile()

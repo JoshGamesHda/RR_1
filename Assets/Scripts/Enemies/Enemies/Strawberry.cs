@@ -17,7 +17,6 @@ public class Strawberry : Enemy
         maxHp = GameData.Instance.HPStrawberry;
         hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageStrawberry;
-        attackRate = GameData.Instance.AttackRateStrawberry;
         attackRange = GameData.Instance.AttackRangeStrawberry;
         moveSpeed = GameData.Instance.MoveSpeedStrawberry;
 
