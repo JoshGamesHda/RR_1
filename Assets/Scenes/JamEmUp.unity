@@ -1288,6 +1288,7 @@ MonoBehaviour:
   areaRadius: 2
   clustersPerWave: 1
   waveDuration: 10
+  spawnOffset: 0.75
   initialMountainHP: 1000
   speedUp_Multiplier: 1.45
   damageUp_Multiplier: 1.5
@@ -1308,25 +1309,25 @@ MonoBehaviour:
   CandyCornProjSpeed: 0.2
   HPStrawberry: 10
   AttackDamageStrawberry: 5
-  AttackRateStrawberry: 1
   AttackRangeStrawberry: 1
   MoveSpeedStrawberry: 1.6
+  MoveSpeedOffsetStrawberry: 0.2
   HPLemon: 5
   AttackDamageLemon: 2
-  AttackRateLemon: 1
   AttackRangeLemon: 3.5
   MoveSpeedLemon: 1.3
+  MoveSpeedOffsetLemon: 0.15
   ProjSpeedLemon: 7.5
   HPBlueberry: 5
   AttackDamageBlueberry: 20
-  AttackRateBlueberry: 1
   AttackRangeBlueberry: 1
   MoveSpeedBlueberry: 4
+  MoveSpeedOffsetBlueberry: 1
   HPDurian: 200
   AttackDamageDurian: 50
-  AttackRateDurian: 0.5
   AttackRangeDurian: 3
   MoveSpeedDurian: 1.3
+  MoveSpeedOffsetDurian: 0.3
 --- !u!4 &76733886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9934e5f7f630b334fb17bc91de9dea86,
@@ -18796,6 +18797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b014696b76596643bc2087e96f8d91b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnOffset: 0
 --- !u!114 &825246698
 MonoBehaviour:
   m_ObjectHideFlags: 0

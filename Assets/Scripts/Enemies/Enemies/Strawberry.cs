@@ -18,7 +18,7 @@ public class Strawberry : Enemy
         hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageStrawberry;
         attackRange = GameData.Instance.AttackRangeStrawberry;
-        moveSpeed = GameData.Instance.MoveSpeedStrawberry;
+        moveSpeed = GameData.Instance.MoveSpeedStrawberry + GameData.Instance.MoveSpeedOffsetStrawberry;
 
         healthMeter.ResetValue();
     }

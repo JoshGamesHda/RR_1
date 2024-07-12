@@ -127,10 +127,10 @@ MonoBehaviour:
   - bossCluster: 1
     enemies:
     - KingDurian
-    - Strawberry
+    - KingDurian
     - Strawberry
     unlockAtWave: 14
-    lockAtWave: 100
+    lockAtWave: 20
   - bossCluster: 0
     enemies:
     - Blueberry

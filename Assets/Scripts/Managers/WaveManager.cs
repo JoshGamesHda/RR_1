@@ -39,6 +39,8 @@ public class WaveManager : MonoBehaviour
     private bool waveSurvived;
     public bool waveActive { get; private set; }
 
+    [SerializeField] private float spawnOffset;
+
     private void OnEnable()
     {
         enemiesToSpawn = new();
@@ -46,6 +48,8 @@ public class WaveManager : MonoBehaviour
         enemies = new();
 
         waveActive = false;
+
+        spawnOffset = GameData.Instance.spawnOffset;
     }
 
     private void Update()
@@ -65,7 +69,7 @@ public class WaveManager : MonoBehaviour
                     continue;
                 }
 
-                // Spawn in enemies
+                // Spawn in enemies at their frequency +- a slight offset, so they dont all pop in at the same time
                 if (Time.time >= enemiesToSpawn[i].lastSpawnTime + enemiesToSpawn[i].frequency)
                 {
                     SoundManager.Instance.PlayEnemySpawn();
@@ -76,7 +80,7 @@ public class WaveManager : MonoBehaviour
                     enemies.Add(enemy);
 
                     // Update the last spawn time for this cluster
-                    enemiesToSpawn[i] = (enemiesToSpawn[i].enemyTypes, enemiesToSpawn[i].pos, enemiesToSpawn[i].frequency, Time.time);
+                    enemiesToSpawn[i] = (enemiesToSpawn[i].enemyTypes, enemiesToSpawn[i].pos, enemiesToSpawn[i].frequency, Time.time + Random.Range(-spawnOffset, spawnOffset));
                 }
             }
             if (clustersSent == clusterCount) allEnemiesSent = true;
@@ -139,7 +143,7 @@ public class WaveManager : MonoBehaviour
                 Queue<string> enemyTypes = new();
                 Queue<Vector2> pos = new();
                 float frequency = GameData.Instance.waveDuration / enemyAmountThisCluster;
-                float lastSpawnTime = waveStart;
+                float lastSpawnTime = waveStart +Random.Range(-spawnOffset, spawnOffset);
 
                 for (int i2 = 0; i2 < enemyAmountThisCluster; i2++)
                 {

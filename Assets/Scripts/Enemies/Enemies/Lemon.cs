@@ -21,7 +21,7 @@ public class Lemon : Enemy
         hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageLemon;
         attackRange = GameData.Instance.AttackRangeLemon;
-        moveSpeed = GameData.Instance.MoveSpeedLemon;
+        moveSpeed = GameData.Instance.MoveSpeedLemon + GameData.Instance.MoveSpeedOffsetLemon;
 
         healthMeter.ResetValue();
     }

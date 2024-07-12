@@ -19,7 +19,7 @@ public class KingDurian : Enemy
         hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageDurian;
         attackRange = GameData.Instance.AttackRangeDurian;
-        moveSpeed = GameData.Instance.MoveSpeedDurian;
+        moveSpeed = GameData.Instance.MoveSpeedDurian + GameData.Instance.MoveSpeedOffsetDurian;
 
         healthMeter.ResetValue();
     }

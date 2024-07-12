@@ -84,7 +84,7 @@ public class Wave
         {
             if (clusterCollection.clusters[i].unlockAtWave <= waveNum && clusterCollection.clusters[i].lockAtWave > waveNum && !clusterCollection.clusters[i].bossCluster) 
                 possibleClusters.Add(clusterCollection.clusters[i]);
-            if (clusterCollection.clusters[i].bossCluster)
+            if (clusterCollection.clusters[i].unlockAtWave <= waveNum && clusterCollection.clusters[i].lockAtWave > waveNum && clusterCollection.clusters[i].bossCluster)
             {
                 bossCluster = clusterCollection.clusters[i];
                 bossClusterFound = true;
@@ -93,18 +93,23 @@ public class Wave
 
         for (int i = 0; i < GameData.Instance.clustersPerWave; i++)
         {
-            // Takes out one random cluster from the cluster list
-            Cluster cluster = possibleClusters[Random.Range(0, possibleClusters.Count)];
-
             if (bossClusterFound && i == 0)
             {
                 areas[Random.Range(0, areas.Count)].clusters.Add(bossCluster);
                 continue;
             }
 
-            // Making sure each area gets at least one cluster, then the rest will be randomly distributed over the areas
-            if (i < areas.Count) areas[i].clusters.Add(cluster);
-            else areas[Random.Range(0, areas.Count)].clusters.Add(cluster);
+            if (possibleClusters.Count > 0)
+            {
+                Cluster cluster = new Cluster();
+                // Takes out one random cluster from the cluster list
+                cluster = possibleClusters[Random.Range(0, possibleClusters.Count)];
+
+                // Making sure each area gets at least one cluster, then the rest will be randomly distributed over the areas
+                if (i < areas.Count) areas[i].clusters.Add(cluster);
+                else areas[Random.Range(0, areas.Count)].clusters.Add(cluster);
+            }
+            else break;
         }
     }
     public void SendWave()

@@ -18,7 +18,7 @@ public class Blueberry : Enemy
         hp = maxHp;
         attackDamage = GameData.Instance.AttackDamageBlueberry;
         attackRange = GameData.Instance.AttackRangeBlueberry;
-        moveSpeed = GameData.Instance.MoveSpeedBlueberry;
+        moveSpeed = GameData.Instance.MoveSpeedBlueberry + GameData.Instance.MoveSpeedOffsetBlueberry;
 
         healthMeter.ResetValue();
     }

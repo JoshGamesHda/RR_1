@@ -38,7 +38,6 @@ public class Projectile : MonoBehaviour
             ReturnProjectile(0);
         }
     }
-
     protected void ReturnProjectile(float particleY)
     {
         GameObject particleSystem = Instantiate(particles);

@@ -5,7 +5,14 @@ using UnityEngine;
 
 public interface IProjectileBehaviour
 {
-    public abstract void UpdateTrajectory(GameObject projectile, Vector3 origin, Vector3 target, float speed, float launchTime);
+    public abstract void UpdateTrajectory
+        (
+        GameObject projectile, 
+        Vector3 origin, 
+        Vector3 target, 
+        float speed, 
+        float launchTime
+        );
 }
 
 public class StraightShot : IProjectileBehaviour

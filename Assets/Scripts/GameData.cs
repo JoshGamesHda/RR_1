@@ -52,6 +52,8 @@ public class GameData : MonoBehaviour
     // The Duration until all enemies of one wave are sent
     public float waveDuration;
 
+    public float spawnOffset;
+
 
     public float initialMountainHP;
     #endregion
@@ -95,12 +97,14 @@ public class GameData : MonoBehaviour
     public float AttackDamageStrawberry;
     public float AttackRangeStrawberry;
     public float MoveSpeedStrawberry;
+    public float MoveSpeedOffsetStrawberry;
 
     [Header("Lemon")]
     public float HPLemon;
     public float AttackDamageLemon;
     public float AttackRangeLemon;
     public float MoveSpeedLemon;
+    public float MoveSpeedOffsetLemon;
     public float ProjSpeedLemon;
 
     [Header("Blueberry")]
@@ -108,12 +112,14 @@ public class GameData : MonoBehaviour
     public float AttackDamageBlueberry;
     public float AttackRangeBlueberry;
     public float MoveSpeedBlueberry;
+    public float MoveSpeedOffsetBlueberry;
 
     [Header("KingDurian")]
     public float HPDurian;
     public float AttackDamageDurian;
     public float AttackRangeDurian;
     public float MoveSpeedDurian;
+    public float MoveSpeedOffsetDurian;
     #endregion
 
     public void UpdateOnceAfterEachWave()
