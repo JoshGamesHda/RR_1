@@ -143,7 +143,7 @@ public class WaveManager : MonoBehaviour
                 Queue<string> enemyTypes = new();
                 Queue<Vector2> pos = new();
                 float frequency = GameData.Instance.waveDuration / enemyAmountThisCluster;
-                float lastSpawnTime = waveStart + Random.Range(-spawnOffset*10, spawnOffset*10);
+                float lastSpawnTime = waveStart +Random.Range(-spawnOffset, spawnOffset);
 
                 for (int i2 = 0; i2 < enemyAmountThisCluster; i2++)
                 {

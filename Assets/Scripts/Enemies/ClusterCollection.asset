@@ -33,25 +33,16 @@ MonoBehaviour:
     - Lemon
     - Lemon
     unlockAtWave: 3
-    lockAtWave: 5
+    lockAtWave: 100
   - bossCluster: 0
     enemies:
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    unlockAtWave: 2
-    lockAtWave: 2
-  - bossCluster: 0
-    enemies:
-    - Strawberry
-    - Strawberry
-    - Strawberry
+    - Lemon
+    - Lemon
     - Strawberry
     - Strawberry
     - Strawberry
     unlockAtWave: 3
-    lockAtWave: 9
+    lockAtWave: 100
   - bossCluster: 0
     enemies:
     - Strawberry
@@ -61,87 +52,66 @@ MonoBehaviour:
     - Lemon
     - Blueberry
     unlockAtWave: 5
-    lockAtWave: 9
+    lockAtWave: 100
   - bossCluster: 0
     enemies:
-    - Blueberry
+    - Strawberry
     - Blueberry
     - Blueberry
     unlockAtWave: 5
-    lockAtWave: 9
+    lockAtWave: 100
   - bossCluster: 1
     enemies:
     - KingDurian
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Lemon
-    - Lemon
-    - Lemon
-    - Lemon
     unlockAtWave: 9
     lockAtWave: 10
   - bossCluster: 0
     enemies:
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Lemon
-    - Lemon
-    - Lemon
-    unlockAtWave: 10
-    lockAtWave: 100
-  - bossCluster: 0
-    enemies:
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    - Strawberry
-    unlockAtWave: 10
-    lockAtWave: 100
-  - bossCluster: 0
-    enemies:
-    - Strawberry
-    - Strawberry
     - Lemon
     - Lemon
     - Lemon
     - Lemon
     unlockAtWave: 10
-    lockAtWave: 100
-  - bossCluster: 0
-    enemies:
-    - Lemon
-    - Lemon
-    - Lemon
-    - Lemon
-    - Blueberry
-    - Blueberry
-    unlockAtWave: 10
-    lockAtWave: 100
+    lockAtWave: 10
   - bossCluster: 1
     enemies:
     - KingDurian
     - KingDurian
     - Strawberry
+    - Lemon
+    - Lemon
     unlockAtWave: 14
-    lockAtWave: 20
-  - bossCluster: 0
+    lockAtWave: 15
+  - bossCluster: 1
+    enemies:
+    - KingDurian
+    unlockAtWave: 20
+    lockAtWave: 100
+  - bossCluster: 1
     enemies:
     - Blueberry
     - Blueberry
     - Blueberry
-    unlockAtWave: 19
+    - Blueberry
+    - Blueberry
+    - Blueberry
+    unlockAtWave: 24
+    lockAtWave: 100
+  - bossCluster: 1
+    enemies:
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    - Strawberry
+    unlockAtWave: 24
     lockAtWave: 100
   - bossCluster: 0
     enemies:
     - KingDurian
-    - KingDurian
+    - Strawberry
+    - Strawberry
+    - Lemon
     unlockAtWave: 24
     lockAtWave: 100
   - bossCluster: 0
@@ -150,28 +120,15 @@ MonoBehaviour:
     - Blueberry
     - Blueberry
     - Blueberry
+    - Blueberry
+    - Blueberry
+    unlockAtWave: 30
+    lockAtWave: 100
+  - bossCluster: 1
+    enemies:
+    - KingDurian
+    - KingDurian
+    - KingDurian
+    - KingDurian
     unlockAtWave: 29
-    lockAtWave: 100
-  - bossCluster: 0
-    enemies:
-    - KingDurian
-    - KingDurian
-    - KingDurian
-    - KingDurian
-    - KingDurian
-    unlockAtWave: 34
-    lockAtWave: 100
-  - bossCluster: 0
-    enemies:
-    - Blueberry
-    - Blueberry
-    - Blueberry
-    - Blueberry
-    - Blueberry
-    - Blueberry
-    - Blueberry
-    - Blueberry
-    - Blueberry
-    - Blueberry
-    unlockAtWave: 39
     lockAtWave: 100

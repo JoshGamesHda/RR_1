@@ -161,5 +161,8 @@ public class GameData : MonoBehaviour
 
         if (GameManager.Instance.waveNum == 8)
             waveDuration = 15;
+
+
+        //GameManager.Instance.mountain.GetComponent<Mountain>().ResetHP();
     }
 }
