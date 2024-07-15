@@ -124,7 +124,7 @@ public class GameData : MonoBehaviour
 
     public void UpdateOnceAfterEachWave()
     {
-        clustersPerWave = 1 + (GameManager.Instance.waveNum - 2) * 2;
+        clustersPerWave = 1 + (GameManager.Instance.waveNum - 4) * 2;
 
         if (GameManager.Instance.waveNum < 8)
             clustersPerWave = 1 + GameManager.Instance.waveNum;
@@ -134,15 +134,15 @@ public class GameData : MonoBehaviour
             clustersPerWave = 3;
         if (GameManager.Instance.waveNum < 2)
             clustersPerWave = 1;
-
         if (GameManager.Instance.waveNum == 9)
-            clustersPerWave = 1;
-
+            clustersPerWave = 14;
 
         if (GameManager.Instance.waveNum == 2)
             areasPerWave = 2;
-        if (GameManager.Instance.waveNum == 7)
+        if (GameManager.Instance.waveNum > 6)
             areasPerWave = 3;
+        if (GameManager.Instance.waveNum == 9)
+            areasPerWave = 1;
         if (GameManager.Instance.waveNum == 18)
             areasPerWave = 4;
         if (GameManager.Instance.waveNum == 23)
@@ -156,9 +156,10 @@ public class GameData : MonoBehaviour
         //Rubberbanding:
         //if player hp < 100 -HPLemon gegner
 
-        if (GameManager.Instance.waveNum == 3)
-            waveDuration = 15;
+        if (GameManager.Instance.waveNum == 5)
+            waveDuration = 10;
 
-        //GameManager.Instance.mountain.GetComponent<Mountain>().ResetHP();
+        if (GameManager.Instance.waveNum == 8)
+            waveDuration = 15;
     }
 }

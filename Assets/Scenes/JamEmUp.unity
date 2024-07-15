@@ -1283,11 +1283,11 @@ MonoBehaviour:
   SpeedUpBuilding: 1
   DamageUpBuilding: 1
   RangeUpBuilding: 1
-  waveDistanceToPlateau: 20
+  waveDistanceToPlateau: 22
   areasPerWave: 1
   areaRadius: 2
   clustersPerWave: 1
-  waveDuration: 10
+  waveDuration: 5
   spawnOffset: 0.75
   initialMountainHP: 1000
   speedUp_Multiplier: 1.45
@@ -1308,22 +1308,22 @@ MonoBehaviour:
   rawRangeFireRate: 8
   CandyCornProjSpeed: 0.2
   HPStrawberry: 10
-  AttackDamageStrawberry: 5
+  AttackDamageStrawberry: 3
   AttackRangeStrawberry: 1
   MoveSpeedStrawberry: 1.6
   MoveSpeedOffsetStrawberry: 0.2
   HPLemon: 5
   AttackDamageLemon: 2
   AttackRangeLemon: 3.5
-  MoveSpeedLemon: 1.3
+  MoveSpeedLemon: 1.1
   MoveSpeedOffsetLemon: 0.15
   ProjSpeedLemon: 7.5
   HPBlueberry: 5
-  AttackDamageBlueberry: 20
+  AttackDamageBlueberry: 15
   AttackRangeBlueberry: 1
-  MoveSpeedBlueberry: 4
+  MoveSpeedBlueberry: 3.6
   MoveSpeedOffsetBlueberry: 1
-  HPDurian: 200
+  HPDurian: 150
   AttackDamageDurian: 50
   AttackRangeDurian: 3
   MoveSpeedDurian: 1.3
