@@ -107,11 +107,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7662285068172499891, guid: ca5523ffd3cf01a459ef4fd51855494a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d8a35d3dc1020942804f993869d7f35, type: 2}
+    - target: {fileID: -6878751105739130787, guid: ca5523ffd3cf01a459ef4fd51855494a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5cb481d7ea89ab4f86c2ce086716228, type: 2}
+    - target: {fileID: 141279016056410891, guid: ca5523ffd3cf01a459ef4fd51855494a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dd41c643d088d7e45ab526095722ca7b, type: 2}
     - target: {fileID: 919132149155446097, guid: ca5523ffd3cf01a459ef4fd51855494a,
         type: 3}
       propertyPath: m_Name
       value: Tower_Support_Speed (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2349021765104816374, guid: ca5523ffd3cf01a459ef4fd51855494a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dd41c643d088d7e45ab526095722ca7b, type: 2}
+    - target: {fileID: 9007287927259783159, guid: ca5523ffd3cf01a459ef4fd51855494a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dd41c643d088d7e45ab526095722ca7b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

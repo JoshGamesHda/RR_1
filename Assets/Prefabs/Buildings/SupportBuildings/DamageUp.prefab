@@ -107,11 +107,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6902573867230041995, guid: 23699dcc6f0bdda4ca991a2cc4cf1fa5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ba8e8bf60d2d9894ca1dcd0f3d365c22, type: 2}
     - target: {fileID: 919132149155446097, guid: 23699dcc6f0bdda4ca991a2cc4cf1fa5,
         type: 3}
       propertyPath: m_Name
       value: Tower_Support_Slow
       objectReference: {fileID: 0}
+    - target: {fileID: 2538364783600972454, guid: 23699dcc6f0bdda4ca991a2cc4cf1fa5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d8a35d3dc1020942804f993869d7f35, type: 2}
+    - target: {fileID: 8616184511030011274, guid: 23699dcc6f0bdda4ca991a2cc4cf1fa5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ba8e8bf60d2d9894ca1dcd0f3d365c22, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
