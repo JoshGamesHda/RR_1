@@ -14,8 +14,13 @@ public static class Constants
     public static KeyCode KEY_BEGIN_WAVE = KeyCode.Space;
     public static KeyCode KEY_HIDE_SHOP = KeyCode.Space;
     public static KeyCode KEY_PLACEMENT = KeyCode.Mouse0;
-    public static KeyCode KEY_ROTATE_BUILDING = KeyCode.Mouse1;
-    public static KeyCode KEY_MOVE_CAMERA = KeyCode.Mouse2;
+    public static KeyCode KEY_ROTATE_BUILDING = KeyCode.R; // Later change this to scsroll wheel stuff
+
+    public static KeyCode KEY_CAMERA_ROTATE = KeyCode.Mouse1;
+    public static KeyCode KEY_CAMERA_FORWARD = KeyCode.W;
+    public static KeyCode KEY_CAMERA_BACKWARD = KeyCode.S;
+    public static KeyCode KEY_CAMERA_RIGHT = KeyCode.D;
+    public static KeyCode KEY_CAMERA_LEFT = KeyCode.A;
 
     // Building identifiers
     public static string ID_SINGLE_DAMAGE = "SingleDamage";

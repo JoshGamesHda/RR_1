@@ -18824,6 +18824,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camParent: {fileID: 913588375}
   cam: {fileID: 971641769}
+  maxMoveSpeed: 10
+  moveAcceleration: 7.5
+  deceleration: 3
+  maxRotationSpeed: 100
+  rotationAcceleration: 50
+  rotationDeceleration: 50
 --- !u!114 &825246700
 MonoBehaviour:
   m_ObjectHideFlags: 0
