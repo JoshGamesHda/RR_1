@@ -43,6 +43,8 @@ public class CameraManager : MonoBehaviour
 
     private float yaw = 0f;
 
+    [SerializeField] private float boundsDistance;
+
     public bool cameraMovementActive { get; set; }
     void OnEnable()
     {
@@ -113,6 +115,7 @@ public class CameraManager : MonoBehaviour
         }
 
         // Move the camera parent
+        if((camParent.transform.position + vel * Time.deltaTime).magnitude < boundsDistance) 
         camParent.transform.position += vel * Time.deltaTime;
     }
 
