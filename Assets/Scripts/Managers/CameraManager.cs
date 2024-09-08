@@ -36,15 +36,27 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private float deceleration;
     private Vector3 vel = Vector3.zero;
 
-    [SerializeField] private float maxRotationSpeed;
-    [SerializeField] private float rotationAcceleration;
-    [SerializeField] private float rotationDeceleration;
-    private float rotationSpeed;
-
-    private float yaw = 0f;
-
     [SerializeField] private float boundsDistance;
 
+    [Header("Horizontal Rotation")]
+    [SerializeField] private float maxHorRotationSpeed;
+    [SerializeField] private float horRotationAcceleration;
+    [SerializeField] private float horRotationDeceleration;
+    private float horRotationSpeed;
+
+    [Header("Vertical Rotation")]
+    [SerializeField] private float maxVertRotationSpeed;
+    [SerializeField] private float vertRotationAcceleration;
+    [SerializeField] private float vertRotationDeceleration;
+    private float vertRotationSpeed;
+
+    [Header("")]
+    [SerializeField] private float minPitch = -30f;
+    [SerializeField] private float maxPitch = 60f;
+
+    private float pitch = 45f;
+    private float yaw = 0f;
+    
     public bool cameraMovementActive { get; set; }
     void OnEnable()
     {
@@ -121,40 +133,74 @@ public class CameraManager : MonoBehaviour
 
     private void Rotation()
     {
-        // Get the mouse X input (left/right movement)
+        // Get the mouse X (horizontal) and Y (vertical) input
         float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
 
+        // Horizontal rotation (yaw)
         if (Input.GetKey(Constants.KEY_CAMERA_ROTATE))
         {
             if (Mathf.Abs(mouseX) > 0.01f) // Detect small mouse movements
             {
-                // Accelerate the rotation speed based on the input direction
-                rotationSpeed += mouseX * rotationAcceleration * Time.deltaTime;
+                // Accelerate the horizontal rotation speed based on input
+                horRotationSpeed += mouseX * horRotationAcceleration * Time.deltaTime;
 
-                // Clamp the rotation speed to the max rotation speed
-                rotationSpeed = Mathf.Clamp(rotationSpeed, -maxRotationSpeed, maxRotationSpeed);
+                // Clamp the horizontal rotation speed to max value
+                horRotationSpeed = Mathf.Clamp(horRotationSpeed, -maxHorRotationSpeed, maxHorRotationSpeed);
             }
         }
 
-        // Decelerate the rotation speed when the mouse stops moving or key is not pressed
+        // Decelerate horizontal rotation when there's no input or key is not pressed
         if (Mathf.Abs(mouseX) <= 0.01f || !Input.GetKey(Constants.KEY_CAMERA_ROTATE))
         {
-            if (rotationSpeed > 0)
+            if (horRotationSpeed > 0)
             {
-                rotationSpeed -= rotationDeceleration * Time.deltaTime;
-                rotationSpeed = Mathf.Max(rotationSpeed, 0); // Prevent overshooting below 0
+                horRotationSpeed -= horRotationDeceleration * Time.deltaTime;
+                horRotationSpeed = Mathf.Max(horRotationSpeed, 0); // Prevent overshooting below 0
             }
-            else if (rotationSpeed < 0)
+            else if (horRotationSpeed < 0)
             {
-                rotationSpeed += rotationDeceleration * Time.deltaTime;
-                rotationSpeed = Mathf.Min(rotationSpeed, 0); // Prevent overshooting above 0
+                horRotationSpeed += horRotationDeceleration * Time.deltaTime;
+                horRotationSpeed = Mathf.Min(horRotationSpeed, 0); // Prevent overshooting above 0
             }
         }
 
-        // Apply the rotation based on the current rotation speed
-        yaw += rotationSpeed * Time.deltaTime;
+        // Apply the horizontal rotation (yaw)
+        yaw += horRotationSpeed * Time.deltaTime;
 
-        // Update the camParent's rotation
-        camParent.transform.rotation = Quaternion.Euler(45, yaw, 0);
+        // Vertical rotation (pitch)
+        if (Input.GetKey(Constants.KEY_CAMERA_ROTATE))
+        {
+            if (Mathf.Abs(mouseY) > 0.01f) // Detect small mouse movements
+            {
+                // Accelerate the vertical rotation speed based on input
+                vertRotationSpeed += -mouseY * vertRotationAcceleration * Time.deltaTime; // Invert Y for natural movement
+
+                // Clamp the vertical rotation speed to max value
+                vertRotationSpeed = Mathf.Clamp(vertRotationSpeed, -maxVertRotationSpeed, maxVertRotationSpeed);
+            }
+        }
+
+        // Decelerate vertical rotation when there's no input or key is not pressed
+        if (Mathf.Abs(mouseY) <= 0.01f || !Input.GetKey(Constants.KEY_CAMERA_ROTATE))
+        {
+            if (vertRotationSpeed > 0)
+            {
+                vertRotationSpeed -= vertRotationDeceleration * Time.deltaTime;
+                vertRotationSpeed = Mathf.Max(vertRotationSpeed, 0); // Prevent overshooting below 0
+            }
+            else if (vertRotationSpeed < 0)
+            {
+                vertRotationSpeed += vertRotationDeceleration * Time.deltaTime;
+                vertRotationSpeed = Mathf.Min(vertRotationSpeed, 0); // Prevent overshooting above 0
+            }
+        }
+
+        // Apply the vertical rotation (pitch) and enforce bounds
+        pitch += vertRotationSpeed * Time.deltaTime;
+        pitch = Mathf.Clamp(pitch, minPitch, maxPitch); // Limit pitch between bounds
+
+        // Update the camParent's rotation using both yaw and pitch
+        camParent.transform.rotation = Quaternion.Euler(pitch, yaw, 0);
     }
 }

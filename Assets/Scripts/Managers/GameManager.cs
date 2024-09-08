@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
     private const float weewoo = 0.2f;
     public List<GameObject> indicators { get; set; }
 
+    [SerializeField] private InfoBox infoBox;
+
     void OnEnable()
     {
         mountain.GetComponent<Mountain>().invulnerable = false;
@@ -89,6 +91,7 @@ public class GameManager : MonoBehaviour
     {
         curPhase = nextPhase;
         curPhase.EnterState();
+        infoBox.UpdateInfoBox();
     }
     public void CreateWave()
     {
@@ -118,5 +121,8 @@ public class GameManager : MonoBehaviour
         GameSceneManager.Instance.ReloadScene();
     }
 
-    
+    public IPhase GetCurPhase()
+    {
+        return curPhase;
+    }
 }
