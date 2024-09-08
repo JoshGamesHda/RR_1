@@ -19901,7 +19901,7 @@ MonoBehaviour:
   vertRotationAcceleration: 750
   vertRotationDeceleration: 75
   minPitch: 15
-  maxPitch: 80
+  maxPitch: 90
 --- !u!114 &825246700
 MonoBehaviour:
   m_ObjectHideFlags: 0
