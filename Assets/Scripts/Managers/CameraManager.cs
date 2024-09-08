@@ -30,7 +30,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private Camera cam;
 
     [Header("Values")]
-
     [SerializeField] private float maxMoveSpeed;
     [SerializeField] private float moveAcceleration;
     [SerializeField] private float deceleration;
@@ -56,7 +55,9 @@ public class CameraManager : MonoBehaviour
 
     private float pitch = 45f;
     private float yaw = 0f;
-    
+
+    private float mouseSensitivity = 1f;
+
     public bool cameraMovementActive { get; set; }
     void OnEnable()
     {
@@ -142,8 +143,8 @@ public class CameraManager : MonoBehaviour
         {
             if (Mathf.Abs(mouseX) > 0.01f) // Detect small mouse movements
             {
-                // Accelerate the horizontal rotation speed based on input
-                horRotationSpeed += mouseX * horRotationAcceleration * Time.deltaTime;
+                // Accelerate the horizontal rotation speed based on input and mouse sensitivity
+                horRotationSpeed += mouseX * mouseSensitivity * horRotationAcceleration * Time.deltaTime;
 
                 // Clamp the horizontal rotation speed to max value
                 horRotationSpeed = Mathf.Clamp(horRotationSpeed, -maxHorRotationSpeed, maxHorRotationSpeed);
@@ -173,8 +174,8 @@ public class CameraManager : MonoBehaviour
         {
             if (Mathf.Abs(mouseY) > 0.01f) // Detect small mouse movements
             {
-                // Accelerate the vertical rotation speed based on input
-                vertRotationSpeed += -mouseY * vertRotationAcceleration * Time.deltaTime; // Invert Y for natural movement
+                // Accelerate the vertical rotation speed based on input, mouse sensitivity, and invert Y for natural movement
+                vertRotationSpeed += -mouseY * mouseSensitivity * vertRotationAcceleration * Time.deltaTime;
 
                 // Clamp the vertical rotation speed to max value
                 vertRotationSpeed = Mathf.Clamp(vertRotationSpeed, -maxVertRotationSpeed, maxVertRotationSpeed);
@@ -202,5 +203,15 @@ public class CameraManager : MonoBehaviour
 
         // Update the camParent's rotation using both yaw and pitch
         camParent.transform.rotation = Quaternion.Euler(pitch, yaw, 0);
+    }
+
+    public float GetMouseSensitivity()
+    {
+        return mouseSensitivity;
+    }
+
+    public void SetMouseSensitivity(float value)
+    {
+        mouseSensitivity = value;
     }
 }

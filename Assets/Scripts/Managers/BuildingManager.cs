@@ -99,7 +99,6 @@ public class BuildingManager : MonoBehaviour
 
                 return;
             }
-            else Debug.Log("Building not found");
         }
     }
     public void Rotate(GameObject building)

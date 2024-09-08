@@ -44,6 +44,9 @@ public class UIManager : MonoBehaviour
     [Header("Defeat Screen")]
     [SerializeField] private GameObject defeatScreen;
 
+    [Header("Menu")]
+    [SerializeField] private GameObject menu;
+
     private GameObject lastBuilding;
     #endregion
 
@@ -56,6 +59,11 @@ public class UIManager : MonoBehaviour
 
         healthBar.InitializeBar(GameData.Instance.initialMountainHP);
         lastBuilding = null;
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ToggleMenu();
     }
     public void ShowButtons()
     {
@@ -137,5 +145,10 @@ public class UIManager : MonoBehaviour
     public void HideDefeatScreen()
     {
         defeatScreen.SetActive(false);
+    }
+
+    private void ToggleMenu()
+    {
+        menu.SetActive(!menu.activeInHierarchy);
     }
 }
